@@ -46,9 +46,10 @@ $(function () {
         { name: '资阳市', value: 0 },
         { name: '自贡市', value: 0 }
     ];
+
     //颜色切换
-    var color = ['#ffff00', '#ff0000', '#33ffff'];
-    var color1 = ['#efcc99', '#ffd942', '#ffff00'];
+    var color1 = ['#ffff00', '#ff0000', '#33ffff'];
+    var color = ['#efcc99', '#ffd942', '#ffff00'];
 
     //获取地区名称和经纬度
     var getGeoCoordMap = function(name) {
@@ -79,15 +80,15 @@ $(function () {
     };
 
     //地图初始化数据
-    function initEcharts(){
-        myChart = echarts.init(document.getElementById('mapshow'), 'shine');
+    //地理位置name--显示与隐藏:show---请求过来的数据:data---控制颜色scatter:colorIdx
+    function initEcharts(show,colorIdx){
         option = {
             backgroundColor: '#7babe8', //背景颜色
             geo3D: {
                 show: true,
                 map: '四川',
                 roam: false,
-                zoom: 5,
+                zoom: 1.2,
                 environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                     offset: 0, color: '#002094'
                 }, {
@@ -95,11 +96,9 @@ $(function () {
                 }, {
                     offset: 1, color: '#0e69e9'
                 }], false),
-                boxHeight: 3,
-                regionHeight: 3,
-                // boxDepth: 500,
-                // boxWidth: 100,
-                // shading: 'color', //不受light影响
+                boxHeight: 6,
+                regionHeight: 2,
+                shading: 'color', //不受light影响
                 label: {
                     show: true,
                     textStyle: {
@@ -112,21 +111,21 @@ $(function () {
                     position: 'bottom',
                 },
                 itemStyle: {
-                    // areaColor: '#002094',
-                    areaColor: {
-                        type: 'radial',
-                        x: 0.5,
-                        y: 0.5,
-                        r: 0.8,
-                        colorStops: [{
-                            offset: 0,
-                            color: '#031132' // 0% 处的颜色
-                        }, {
-                            offset: 1,
-                            color: '#031132' // 100% 处的颜色
-                        }],
-                        globalCoord: false // 缺省为 false
-                    },
+                    areaColor: '#002094',
+                    // areaColor: {
+                    //     type: 'radial',
+                    //     x: 1,
+                    //     y: 1,
+                    //     r: 1,
+                    //     colorStops: [{
+                    //         offset: 0,
+                    //         color: 'rgba(147, 235, 248, .9)' // 0% 处的颜色
+                    //     }, {
+                    //         offset: 1,
+                    //         color: 'rgba(147, 235, 248, .9)' // 100% 处的颜色
+                    //     }],
+                    //     globalCoord: false // 缺省为 false
+                    // },
                     opacity: 0.8,
                     borderWidth: 0.8,
                     borderColor: '#0e6aee',
@@ -148,7 +147,32 @@ $(function () {
                         borderColor: '#f2205f'
                     }
                 },
-                zlevel: 4,
+                // regions: [{
+                //     name: '凉山彝族自治州',
+                //     // regionHeight: 5,
+                //     itemStyle: {
+                //         color: '#0f0',
+                //         borderWidth: 2,
+                //         borderColor: '#f2205f',
+                //         areaColor: '#f2205f'
+                //     },
+                //     emphasis: {
+                //         label:{
+                //           show: true,
+                //           color: '#f00'
+                //         },
+                //         itemStyle: {
+                //             color: '#f2205f',
+                //             borderWidth: 0,
+                //             borderColor: '#f2205f',
+                //             // shadowColor: 'rgba(0, 0, 0, 0.5)',
+                //             // shadowBlur: 10,
+                //             // shadowOffsetX: 39,
+                //             // shadowOffsetY: 40
+                //         }
+                //     }
+                // }],
+                zlevel: -10,
                 light: { //光照阴影
                     main: {
                         color: '#fff', //光照颜色
@@ -162,22 +186,31 @@ $(function () {
                     }
                 },
             },
+            // visualMap: {
+            //     show: false,
+            //     inRange: {
+            //         color: ['#f00','#0f0']
+            //     }
+            // },
             series: [
-               /* {
-                    name: '四川',
-                    type: 'map3D',//类型
+                {
+                    name: '省份',
+                    mapType: '四川',
+                    type: 'map3D',
                     coordinateSystem: 'geo3D',
-                      itemStyle: {
-                        areaColor: '#002094',
-                        borderColor:'#0e69e9',
-                        borderWidth: 2,
-                          shadowColor: '#fff',
-                          shadowBlur: 100
-                       },
+                    environment: '#000',
+                    regionHeight: 5,
+                    itemStyle: {
+                    areaColor: '#f2205f',
+                    borderColor:'#f2205f',
+                    borderWidth: 2,
+                      shadowColor: '#fff',
+                      shadowBlur: 100
+                   },
                     emphasis: {
                         show: true,
                         color: "#0060df",
-                        areaColor: '#0060df',
+                        areaColor: '#f2205f',
                     },
                     label: {
                         normal: {
@@ -193,27 +226,26 @@ $(function () {
                             }
                         }
                     },
-                       zoom: 1.2,
-                       showLegendSymbol:false, //显示地标
-                     mapType: '四川',
-                     roam: false,
-                     aspectScale:1,//地图长宽比
-                    zlevel: 8,
-                     data: scData
-                },*/
+                   zoom: 1.2,
+                   showLegendSymbol:false, //显示地标
+                   roam: false,
+                   aspectScale:1,//地图长宽比
+                   zlevel: 10,
+                   data: convertData(scData)
+                },
                 {
                     name: '点',
                     type: 'scatter3D',
                     coordinateSystem: 'geo3D',
                     symbol: 'pin',
-                    symbolSize: 16,
+                    symbolSize: show == true ? 16 : 0,
                     label: {
-                        show: true,
+                        show: show == true ? true : false,
                         formatter: function(params) {
                             return params.data.value[2] + '次';
                         },
                         textStyle: {
-                            color: '#fcca99',
+                            color: color[colorIdx],
                             fontSize: 18,
                             opacity: 1,
                             backgroundColor: 'rgba(0,0,0,0)'
@@ -224,7 +256,7 @@ $(function () {
                     },
                     itemStyle: {
                         normal: {
-                            color: '#ffff00', //标志颜色
+                            color: color1[colorIdx], //标志颜色
                         }
                     },
                     zlevel: 10,
@@ -236,182 +268,380 @@ $(function () {
         //地图区域块点击事件
         myChart.off("click");
         myChart.on('click', function (params) {
+            //跳转到市请求
             console.log(params)
             localStorage.setItem('address',params.name);
-            location.href='view/province.html';
+            // location.href='view/province.html';
+            $('.content_middle').load('view/province.html')
+
+            // 重新渲染左右侧请求
+            var num = 10000;
+            // $('#specialnum').html(`<span>${num}</span><span>个</span>`)
+            // $('#specialnum').text(`${num}`)
         });
     }
 
-    //横向bar
+    //立体bar
     function initEchartsBar() {
         var myChart = echarts.init(document.getElementById('bar1'));
-        option = {
-            backgroundColor: '#7babe8', //背景颜色
-            geo3D: {
-                show: true,
-                map: '四川',
-                roam: false,
-                environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0, color: '#002094'
-                }, {
-                    offset: 0.7, color: '#0e69e9'
-                }, {
-                    offset: 1, color: '#0e69e9'
-                }], false),
-                boxHeight: 5,
-                regionHeight: 3,
-                // boxWidth: 100,
-                shading: 'color', //不受light影响
-                label: {
+        var option = {
+            backgroundColor: '#02165d',
+            tooltip: {
+                show: false,
+                trigger: 'axis'
+            },
+            xAxis: {
+                data: ["企业", "农专", "个体"],
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
                     show: true,
                     textStyle: {
                         color: '#fff',
-                        fontSize: 12,
-                        opacity: 1,
-                        backgroundColor: 'rgba(0,0,0,0)',
+                        fontSize: 14
                     },
-                    distance: -1,
-                    position: 'bottom',
+                    margin: 15
                 },
-                itemStyle: {
-                    areaColor: '#002094',
-                    opacity: 0.8,
-                    borderWidth: 0.8,
-                    borderColor: '#0e6aee',
-                    // shadowColor: 'rgba(0,54,255, 1)',
-                    // shadowBlur: 100
+
+            },
+            yAxis: {
+                splitLine: {
+                    show: false
                 },
-                emphasis:{
-                    label: {
-                        show: true,
-                        textStyle: {
-                            color: '#fff',
-                            fontSize: 12,
-                        }
-                    },
-                    itemStyle:{
-                        areaColor: '#f2205f',
-                        opacity: 1,
-                        borderWidth: 0,
-                        borderColor: '#f2205f'
-                    }
+                axisTick: {
+                    show: false
                 },
-                zlevel: 4,
-                light: { //光照阴影
-                    main: {
-                        color: '#fff', //光照颜色
-                        intensity: 1.2, //光照强度
-                        shadow: false, //是否显示阴影
-                        alpha: 55,
-                        beta: 10
-                    },
-                    ambient: {
-                        intensity: 0.3
-                    }
+                axisLine: {
+                    show: false
                 },
+                axisLabel: {
+                    show: false,
+                }
             },
             series: [
-                /*{
-                    name: '四川',
-                    type: 'map3D',//类型
-                    coordinateSystem: 'geo3D',
-                      itemStyle: {
-                        areaColor: '#002094',
-                        borderColor:'#0e69e9',
-                        borderWidth: 2,
-                       },
-                    emphasis: {
-                        show: true,
-                        color: "#0060df",
-                        areaColor: '#0060df',
-                    },
-                    label: {
-                        normal: {
-                            show: true,
-                            textStyle: {
-                                color: "#fff"
-                            }
-                        },
-                        emphasis: {
-                            show: true,
-                            textStyle: {
-                                color: "#fff"
-                            }
-                        }
-                    },
-                       zoom: 1.2,
-                       showLegendSymbol:false, //显示地标
-                     mapType: '四川',
-                     roam: false,
-                     aspectScale:1,//地图长宽比
-                    zlevel: 8,
-                     data: scData
-                },*/
                 {
-                    name: '点',
-                    type: 'scatter3D',
-                    coordinateSystem: 'geo3D',
-                    symbol: 'pin',
-                    symbolSize: 16,
-                    label: {
-                        show: true,
-                        formatter: function(params) {
-                            return params.data.value[2] + '次';
-                        },
-                        textStyle: {
-                            color: '#fcca99',
-                            fontSize: 18,
-                            opacity: 1,
-                            backgroundColor: 'rgba(0,0,0,0)'
-                        },
-                        position: 'top',
-                        opacity: 1,
-                        distance: -5
-                    },
+                    name: '',
+                    type: 'pictorialBar',
+                    symbolSize: [30, 15],
+                    symbolOffset: [0, -10],
+                    z: 12,
+                    symbolPosition: 'end',
                     itemStyle: {
                         normal: {
-                            color: '#ffff00', //标志颜色
+                            color: '#f50161'
                         }
                     },
-                    zlevel: 10,
-                    data: convertData(scData)
+                    data:  [100, 50, 20]
+                },
+                {
+                    name: '',
+                    type: 'pictorialBar',
+                    symbolSize: [30, 15],
+                    symbolOffset: [0, 10],
+                    z: 12,
+                    itemStyle: {
+                        normal: {
+                            color: '#f50161'
+
+                        }
+                    },
+                    data: [100, 50, 20]
+                },
+                {
+                    name: '实时监控',
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: '#b11e50'
+                        }
+                    },
+                    label:{
+                        show: true,
+                        position : 'top',
+                        distance : 12,
+                        color: '#ff0656',
+                        fontSize: 16,
+                    },
+                    silent: true,
+                    barWidth: 30,
+                    barGap: '-100%',
+                    data: [100, 50, 20]
                 }
             ]
         };
         myChart.setOption(option);
-        //地图区域块点击事件
-        myChart.on('click', function (params) {
-            console.log(params)
-            localStorage.setItem('address',params.name)
-            location.href='view/province.html'
-        });
+    }
+
+    //横向bar
+    function initEchartsBar1() {
+        var myChart = echarts.init(document.getElementById('bar2'));
+        var myColor = ['#0743f2','#d15000','#009c9e','#f50161'];
+        var option = {
+            grid: {
+                show: false,
+                left: '12%',
+                right: '30%',
+            },
+            backgroundColor: '#121B2C',        //背景色
+            xAxis: {show: false},
+            yAxis: [ {
+                show: false,
+                axisTick: 'none',
+                axisLine: {
+                    show: true
+                },
+                offset: '27',
+                axisLabel: {
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: '16',
+                    },
+                    // margin: 8,
+                },
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var num = myColor.length;
+                            return myColor[params.dataIndex % num]
+                        },
+                    }
+                },
+                data: ['闽DZ0175']
+            } ,
+                {
+                    axisTick: 'none',
+                    axisLine: 'none',
+                    axisLabel: {
+                        textStyle: {
+                            color: '#ffffff',
+                            fontSize: '16',
+                        }
+                    },
+                    data:  [11]
+                }],
+
+            series: [
+                {
+                    name: '数据内框',
+                    type: 'bar',
+                    itemStyle: {
+                        barBorderRadius: 20,
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#f7734e'
+                        }, {
+                            offset: 1,
+                            color: '#e12945'
+                        }]),
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    },
+                    barWidth: 20,
+                    barMinHeight: 20,
+                    data: [50]
+                },
+                {
+                    name: '外框',
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: 20,
+                            color: 'rgba(255, 255, 255, 0.11)'
+                        }
+                    },
+                    barGap: '-100%',
+                    z: 0,
+                    barWidth: 21,
+                    data: [100]
+                }
+            ]
+        };
+        myChart.setOption(option);
     }
 
 
+    //圆饼图
+    function initHighPie() {
+        var each = Highcharts.each,
+            round = Math.round,
+            cos = Math.cos,
+            sin = Math.sin,
+            deg2rad = Math.deg2rad;
+        Highcharts.wrap(Highcharts.seriesTypes.pie.prototype, 'translate', function(proceed) {
+            proceed.apply(this, [].slice.call(arguments, 1));
+            if (!this.chart.is3d()) {
+                return;
+            }
+            var series = this,
+                chart = series.chart,
+                options = chart.options,
+                seriesOptions = series.options,
+                depth = seriesOptions.depth || 0,
+                options3d = options.chart.options3d,
+                alpha = options3d.alpha,
+                beta = options3d.beta,
+                z = seriesOptions.stacking ? (seriesOptions.stack || 0) * depth : series._i * depth;
+            z += depth / 2;
+            if (seriesOptions.grouping !== false) {
+                z = 0;
+            }
+            each(series.data, function(point) {
+                var shapeArgs = point.shapeArgs,
+                    angle;
+                point.shapeType = 'arc3d';
+                var ran = point.options.h;
+                shapeArgs.z = z;
+                shapeArgs.depth = depth * 0.75 + ran;
+                shapeArgs.alpha = alpha;
+                shapeArgs.beta = beta;
+                shapeArgs.center = series.center;
+                shapeArgs.ran = ran;
+                angle = (shapeArgs.end + shapeArgs.start) / 2;
+                point.slicedTranslation = {
+                    translateX: round(cos(angle) * seriesOptions.slicedOffset * cos(alpha * deg2rad)),
+                    translateY: round(sin(angle) * seriesOptions.slicedOffset * cos(alpha * deg2rad))
+                };
+            });
+        });
+        (function(H) {
+            H.wrap(Highcharts.SVGRenderer.prototype, 'arc3dPath', function(proceed) {
+                // Run original proceed method
+                var ret = proceed.apply(this, [].slice.call(arguments, 1));
+                ret.zTop = (ret.zOut + 0.5) / 100;
+                return ret;
+            });
+        }(Highcharts));
+        Highcharts.chart('container', {
+            chart: {
+                type: 'pie',
+                animation: false,
+                events: {
+                    load: function() {
+                        var each = Highcharts.each,
+                            points = this.series[0].points;
+                        each(points, function(p, i) {
+                            p.graphic.attr({
+                                translateY: -p.shapeArgs.ran
+                            });
+                            p.graphic.side1.attr({
+                                translateY: -p.shapeArgs.ran
+                            });
+                            p.graphic.side2.attr({
+                                translateY: -p.shapeArgs.ran
+                            });
+                        });
+                    }
+                },
+                options3d: {
+                    enabled: true,
+                    alpha: 75,
+                    beta: 0
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [{
+                    'name': 'Firefox',
+                    y: 30.0,
+                    h: 50
+                }, {
+                    name: 'IE',
+                    y: 26.8,
+                    h: 15
+                }, {
+                    name: 'Chrome',
+                    y: 12.8,
+                    h: 20
+                }, {
+                    'name': 'Safari',
+                    y: 8.5,
+                    h: 2
+                }, {
+                    'name': 'Opera',
+                    y: 6.2,
+                    h: 15
+                }, {
+                    'name': 'Others',
+                    y: 0.7,
+                    h: 30
+                }]
+            }]
+        });
+    }
+
+    //显示对应城市
     function showCity(pName, Chinese_) {
-        //这写省份的js都是通过在线构建工具生成的，保存在本地，需要时加载使用即可，最好不要一开始全部直接引入。
-        loadBdScript('$' + pName + 'JS', './lib/map/province/' + pName + '.js', function() {
+        loadBdScript('$' + pName + 'JS', 'lib/map/province/' + pName + '.js', function() {
             initEcharts(Chinese_);
         });
     }
 
+    // 加载对应的JS
+    function loadBdScript(scriptId, url, callback) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        if (script.readyState) { //IE
+            script.onreadystatechange = function() {
+                if (script.readyState === "loaded" || script.readyState === "complete") {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else {
+            script.onload = function() {
+                callback();
+            };
+        }
+        script.src = url;
+        script.id = scriptId;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    };
+
+    //***********************************************************************************************
+    //map
+    var myChart = echarts.init(document.getElementById('mapshow'));
+    var option = {};
+
+    //bar
 
 
-    initEcharts();
+
+    initEcharts(true,0);
+    // initHighPie();
+    initEchartsBar();
+    initEchartsBar1();
     // initEchartsBar();
     //项目总览,阳光审批,实时监管选中
     $('.noActive').click(function(){
-        // $('.noActive').removeClass('active')
+        console.log("data-id",$(this).data("id"));
         if($(this).hasClass('active')){
             $(this).removeClass('active')
-            option.series[0].label.show = false;
-            option.series[0].symbolSize = 0;
+            // option.series[1].label.show = false;
+            // option.series[1].symbolSize = 0;
+            initEcharts(false, $(this).data("id"))
         } else {
+            $('.main_body').find('.active').removeClass('active');
             $(this).addClass('active')
-            option.series[0].label.show = true;
-            option.series[0].symbolSize = 16;
+            // option.series[0].label.show = true;
+            // option.series[0].symbolSize = 16;
+            initEcharts(true, $(this).data("id"))
         }
-        myChart.setOption(option);
+        // myChart.setOption(option);
     })
     //搜索按钮
     $('.sudoBtn').click(function(){
@@ -450,6 +680,10 @@ $(function () {
     $(window).resize(function() {
         myChart.resize();
     });
+
+
+
+
 
 })
 

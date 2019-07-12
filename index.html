@@ -4,17 +4,20 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<script src='https://gallery.echartsjs.com/dep/jquery/jquery.min.js'></script>
-		<!--<script type="text/javascript" src="https://gallerybox.echartsjs.com/dep/echarts/latest/echarts.min.js"></script>-->
+		<!--<script src='https://gallery.echartsjs.com/dep/jquery/jquery.min.js'></script>-->
+		<script type="text/javascript" src="./lib/jquery.min.js"></script>
 		<script type="text/javascript" src="./lib/echarts.min.js"></script>
-		<!--<script type="text/javascript" src="https://echarts.baidu.com/resource/echarts-gl-latest/dist/echarts-gl.min.js"></script>-->
 		<script type="text/javascript" src="./lib/echarts-gl.min.js"></script>
+		<!--<script type="text/javascript" src="./lib/highcharts-3d.js"></script>-->
+		<!--<script type="text/javascript" src="./lib/highcharts.js"></script>-->
 		<script type="text/javascript" src="./lib/sichuan.js"></script>
-		<script type="text/javascript" src="./js/index.js"></script>
 
-		<!--<script src="lib/require.js" data-main="js/main" defer async="true" ></script>-->
+
 		<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
-		<!--http://cdn.highcharts.com.cn/highcharts/highcharts-3d.js-->
+		<script src="http://cdn.highcharts.com.cn/highcharts/highcharts-3d.js"></script>
+
+        <script type="text/javascript" src="./js/index.js"></script>
+
 	</head>
 	<body>
 	<div class="main">
@@ -25,7 +28,37 @@
 			<!--项目总览、阳光审批-->
 			<div class="content_left">
 				<!--项目总览-->
-				<div class="projectOverview noActive">
+				<div class="projectOverview noActive" data-id="0">
+              <!--      <div class="boxcontainer">
+                        &lt;!&ndash;内层&ndash;&gt;
+                        <div class="zindex">
+                            <div class="topcon">
+                                <div class="t1"></div>
+                                <div class="t2"></div>
+                                <div class="t3"></div>
+                                <div class="t4"></div>
+                                <div class="t5"></div>
+                            </div>
+                            <div class="midcon">
+                                <div class="m1"></div>
+                                <div class="m2"></div>
+                            </div>
+                            <div class="botcon">
+                                <div class="b1"></div>
+                                <div class="b2"></div>
+                            </div>
+                        </div>
+                        &lt;!&ndash;外层&ndash;&gt;
+                        <div class="zindex2">
+                            <div class="topcon">
+                                <div class="t1"></div>
+                            </div>
+                            <div class="botcon">
+                                <div class="b1"></div>
+                            </div>
+                        </div>
+
+                    </div>-->
 					<div class="slider_title">
 						<p class="slider_icon"></p>
 						<span>项目总览</span>
@@ -35,7 +68,7 @@
 							<p class="list_icon"></p>
 							<span>补贴项目数量</span>
 						</div>
-						<div class="list_inf">
+						<div class="list_inf" id="specialnum">
 							<span>246</span><span>个</span>
 						</div>
 					</div>
@@ -50,7 +83,7 @@
 					</div>
 				</div>
 				<!--阳光审批-->
-				<div class="sunApproval noActive">
+				<div class="sunApproval noActive" data-id="1">
 					<div class="slider_title">
 						<p class="slider_icon"></p>
 						<span>阳光审批</span>
@@ -74,24 +107,10 @@
 						</div>
 					</div>
 					<div class="sunClass">
-						<div class="list_title">
-							<p class="list_icon"></p>
-							<span>大数据拦截总人次</span>
-						</div>
-						<div class="sunInf">
-							<p>2891</p>
-						</div>
-					</div>
-					<div class="sunClass">
-						<div class="list_title">
-							<p class="list_icon"></p>
-							<span>反不当支付总金额</span>
-						</div>
-						<div class="sunInf">
-							<p>189134</p>
-						</div>
+						<div id="bar2" style="width: 250px; height: 50px;padding: 10px;"></div>
 					</div>
 				</div>
+
 			</div>
 			<!--地图显示-->
 			<div class="content_middle">
@@ -208,31 +227,16 @@
 							</div>
 						</div>
 						<div class="publicService_inf_bottom">
-							<div>
-								<div class="list_title">
-									<p class="list_icon"></p>
-									<span>网厅</span>
-								</div>
-								<div class="list_inf">
-									<span>240</span><span>次</span>
-								</div>
-							</div>
-							<div>
-								<div class="list_title">
-									<p class="list_icon"></p>
-									<span>自助一体机</span>
-								</div>
-								<div class="list_inf">
-									<span>2</span><span>次</span>
-								</div>
-							</div>
+							<div id="bar1" style="width: 300px; height: 300px;"></div>
 						</div>
 					</div>
 				</div>
+                <!--<div id="container"></div>-->
 			</div>
 		</div>
 
 	</div>
+
 	<!--点击投诉举报显示该弹出框-->
 	<div class="wrap">
 		<div class="wrap_center">

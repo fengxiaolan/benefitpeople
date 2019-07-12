@@ -9,7 +9,7 @@ $(function () {
     var names = echarts.getMap(localStorage.getItem('address')).geoJson.features.map(item => {
         return {
             name: item.properties.name,
-            value: ++1
+            value: 10
         }
     });
 
@@ -44,7 +44,7 @@ $(function () {
 
     //初始化数据
     function initEcharts(){
-        var myChart = echarts.init(document.getElementById('mapshow'), 'shine');
+        myChart1 = echarts.init(document.getElementById('mapshow1'), 'shine');
         option = {
             backgroundColor: '#051956', //背景颜色
             geo: {
@@ -168,9 +168,9 @@ $(function () {
                 }
             ]
         };
-        myChart.setOption(option);
+        myChart1.setOption(option);
         //拿到当前点击区域的去域名
-        myChart.on('click', function (params) {
+        myChart1.on('click', function (params) {
             alert(params.name)
         });
     }
@@ -184,7 +184,7 @@ $(function () {
         $('.noActive').removeClass('active')
         $(this).addClass('active')
         option.series[0].label.normal.show=true
-        myChart.setOption(option);
+        myChart1.setOption(option);
     })
     //信息汇总弹窗
     $('.infBtn').click(function(){
@@ -206,7 +206,7 @@ $(function () {
 
 
 
-    myChart.on("dblclick", function() {
+    myChart1.on("dblclick", function() {
 
     });
 })

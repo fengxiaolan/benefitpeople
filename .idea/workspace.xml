@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65ba7980-85e5-45c6-9458-99f97a33dc47" name="Default Changelist" comment="" />
+    <list default="true" id="65ba7980-85e5-45c6-9458-99f97a33dc47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/highcharts-3d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/highcharts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/province.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/province.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/province.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/province.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -13,13 +26,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="817">
+              <caret line="229" column="86" selection-start-line="229" selection-start-column="86" selection-end-line="229" selection-end-column="86" />
               <folding>
-                <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -30,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4522">
-              <caret line="266" column="16" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="16" />
+            <state relative-caret-position="391">
+              <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -39,17 +54,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/province.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="72" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
+            <state relative-caret-position="493">
+              <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/province.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+            <state relative-caret-position="782">
+              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -57,34 +75,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="33" selection-start-line="26" selection-start-column="8" selection-end-line="46" selection-end-column="33" />
+            <state relative-caret-position="604">
+              <caret line="621" lean-forward="true" selection-start-line="621" selection-end-line="621" />
+              <folding>
+                <element signature="e#43#693#0" />
+                <element signature="e#712#1468#0" />
+                <element signature="e#9801#12368#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/config.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/humanEnvironment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="43" />
-              <folding>
-                <element signature="e#443#4391#0" />
-                <element signature="e#4962#5224#0" />
-                <element signature="e#5264#6158#0" />
-                <element signature="e#6233#7060#0" />
-                <element signature="e#7497#8058#0" />
-                <element signature="e#8118#9503#0" />
-                <element signature="e#13534#17251#0" />
-                <element signature="e#17393#21956#0" />
-                <element signature="e#21991#30216#0" />
-                <element signature="e#30278#36278#0" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -97,7 +103,6 @@
               <folding>
                 <element signature="e#501#5863#0" />
                 <element signature="e#6681#10428#0" />
-                <element signature="e#10467#14654#0" />
                 <element signature="e#14783#19207#0" />
               </folding>
             </state>
@@ -134,8 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>wrap</find>
-      <find>address</find>
       <find>geoCoordMap</find>
       <find>echarts</find>
       <find>convertData</find>
@@ -151,12 +154,25 @@
       <find>closeInf</find>
       <find>500</find>
       <find>echarts-gl</find>
-      <find>myChart</find>
-      <find>mapshow</find>
       <find>option</find>
-      <find>noActive</find>
       <find>myChart.on</find>
+      <find>regionHeight</find>
+      <find>shadow</find>
+      <find>Chart</find>
+      <find>Highcharts.com</find>
+      <find>Chart title</find>
+      <find>mapshow</find>
+      <find>投诉举报</find>
+      <find>noActive</find>
+      <find>myChart</find>
+      <find>html</find>
+      <find>.content_left</find>
+      <find>凉山彝族自治州</find>
+      <find>initEcharts</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -164,24 +180,28 @@
         <option value="$PROJECT_DIR$/js/echarts.min.js" />
         <option value="$PROJECT_DIR$/html/two.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/view/province.html" />
         <option value="$PROJECT_DIR$/lib/echarts-gl.min.js" />
         <option value="$PROJECT_DIR$/lib/echarts.min.js" />
         <option value="$PROJECT_DIR$/css/1.css" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/js/config.js" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/lib/highcharts-3d.js" />
+        <option value="$PROJECT_DIR$/lib/highcharts.js" />
+        <option value="$PROJECT_DIR$/lib/jquery.min.js" />
         <option value="$PROJECT_DIR$/js/province.js" />
+        <option value="$PROJECT_DIR$/view/province.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/index.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="129" />
-    <option name="y" value="102" />
-    <option name="width" value="1048" />
+    <option name="x" value="281" />
+    <option name="y" value="67" />
+    <option name="width" value="934" />
     <option name="height" value="738" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -197,18 +217,17 @@
             <path>
               <item name="benefitpeople" type="b2602c69:ProjectViewProjectNode" />
               <item name="benefitpeople" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="benefitpeople" type="b2602c69:ProjectViewProjectNode" />
+              <item name="benefitpeople" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="benefitpeople" type="b2602c69:ProjectViewProjectNode" />
               <item name="benefitpeople" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="benefitpeople" type="b2602c69:ProjectViewProjectNode" />
-              <item name="benefitpeople" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="benefitpeople" type="b2602c69:ProjectViewProjectNode" />
@@ -259,18 +278,18 @@
       <updated>1562808398074</updated>
       <workItem from="1562808400004" duration="26603000" />
       <workItem from="1562854352115" duration="8442000" />
-      <workItem from="1562892990144" duration="322000" />
+      <workItem from="1562892990144" duration="25930000" />
+      <workItem from="1562933796407" duration="587000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35367000" />
+    <option name="totallyTimeSpent" value="61562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19940476" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19866072" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="YhView" order="2" weight="0.3296131" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -289,6 +308,26 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19940476" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="YhView" order="2" weight="0.3296131" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.048231512" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -308,44 +347,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/index.js</url>
-          <line>247</line>
-          <option name="timeStamp" value="3" />
+          <line>83</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/index.js</url>
+          <line>286</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/map/ganzi.js" />
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/test/ut/spec/api/converter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/test/ut/spec/api/converter.js" />
     <entry file="file://$PROJECT_DIR$/js/map/chengdu.js" />
     <entry file="file://$PROJECT_DIR$/js/echarts.min.js" />
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/dist/echarts-en.common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="28941" column="8" selection-start-line="28941" selection-start-column="8" selection-end-line="28941" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/map/json/province/sichuan.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3273" selection-start-column="3271" selection-end-column="3273" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/map/json/province/anhui.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="47" lean-forward="true" selection-start-column="47" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/dist/echarts-en.common.js" />
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/map/json/province/sichuan.json" />
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/map/json/province/anhui.json" />
     <entry file="file://$PROJECT_DIR$/js/map/aba.js" />
     <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/enterprise/enterprise.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -363,14 +383,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/html/two.html" />
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-1173" />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/README.md" />
     <entry file="file://$PROJECT_DIR$/lib/require.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -378,20 +391,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/test/ut/core/utHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6109">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/test/ut/core/utHelper.js" />
+    <entry file="file://$PROJECT_DIR$/incubator-echarts-4.2.1/index.js" />
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -437,42 +438,6 @@
     <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/global_custom.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4522">
-          <caret line="266" column="16" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/province.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="72" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="33" selection-start-line="26" selection-start-column="8" selection-end-line="46" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/humanEnvironment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -492,6 +457,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/highcharts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="115" column="50" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/highcharts-3d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21503" selection-start-line="3" selection-start-column="21503" selection-end-line="3" selection-end-column="21503" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sichuan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/province.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/province.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/politicalStability.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -499,7 +524,6 @@
           <folding>
             <element signature="e#501#5863#0" />
             <element signature="e#6681#10428#0" />
-            <element signature="e#10467#14654#0" />
             <element signature="e#14783#19207#0" />
           </folding>
         </state>
@@ -522,10 +546,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/province.js">
+    <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+        <state relative-caret-position="391">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="621" lean-forward="true" selection-start-line="621" selection-end-line="621" />
+          <folding>
+            <element signature="e#43#693#0" />
+            <element signature="e#712#1468#0" />
+            <element signature="e#9801#12368#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="229" column="86" selection-start-line="229" selection-start-column="86" selection-end-line="229" selection-end-column="86" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

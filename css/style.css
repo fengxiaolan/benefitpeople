@@ -1,3 +1,71 @@
+/*背景图*/
+*{
+	box-sizing: border-box;
+}
+.boxcontainer{
+	width: 376px;
+	height: 303px;
+	position: relative;
+}
+.zindex{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    margin-left: 6px;
+	margin-bottom: 6px;
+}
+.zindex .topcon{
+	height: 112px;
+	width: 100%;
+}
+zindex .topcon .t1{
+	height: 50px;
+	position: absolute;
+	left: 50%;
+}
+zindex .topcon .t2{
+	/*height: 112px;*/
+}
+zindex .topcon .t3{
+	height: 50px;
+	width: 50px;
+	background: url("../img/ltop.png");
+}
+zindex .topcon .t4{
+	height: 50px;
+	width: 50px;
+	background: url("../img/rtop.png");
+}
+.zindex .midcon{
+	height: 106px;
+}
+.zindex .botcon{
+	height: 90px;
+}
+
+.zindex2{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #053dcd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *{
 	margin: 0;
 	padding: 0;
@@ -24,12 +92,14 @@ body{
 	width: 100%;
 	display: flex;
 }
+
 /*项目总览、阳光审批*/
 .content_left{
-	width: 18%;
+	width: 20%;
 	/*height: 600px;*/
 	/*background: antiquewhite;*/
 }
+
 /*共同样式*/
 .noActive{
 	padding: 14px;
@@ -41,6 +111,7 @@ body{
 	background: #051956;
 	border: 1px solid #002094;
 }
+
 /*头部共有样式*/
 .slider_title{
 	height: 30px;
@@ -72,6 +143,7 @@ body{
 	box-sizing: border-box;
 	border: 1px solid #002094;
 }
+
 /*共有样式*/
 .list_title{
 	height: 30px;
@@ -98,10 +170,12 @@ body{
 .list_title>span{
 	font-size: 12px;
 }
+
 /*选中样式*/
 .active{
 	border: 2px solid #33FFFF !important;
 }
+
 /*阳光审批*/
 .sunApproval{
 	/*width: 100%;*/
@@ -130,12 +204,14 @@ body{
 	font-weight: 500;
 	letter-spacing: 5px;
 }
+
 /*实时监管、投诉举报、公众服务*/
 .content_right{
 	width: 20%;
 	/*height: 600px;*/
 	/*border: 1px solid aquamarine;*/
 }
+
 /*实时监管*/
 .realTimeRe{
 	width: 100%;
@@ -208,6 +284,7 @@ body{
 	margin-bottom: 14px;
 	border: 1px solid #002094;
 }
+
 /*地图信息*/
 .content_middle{
 	/*opacity: 0;*/
@@ -270,6 +347,7 @@ body{
 	text-align: center;
 	/*background: khaki;*/
 }
+
 /*投诉弹出框*/
 .wrap{
 	width: 100%;
@@ -404,6 +482,7 @@ body{
 	color: deepskyblue;
 	border: 1px solid deepskyblue;
 }
+
 /*按钮点击样式*/
 .btnActive{
 	background: deepskyblue !important;
