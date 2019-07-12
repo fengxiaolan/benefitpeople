@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<!--<script src='https://gallery.echartsjs.com/dep/jquery/jquery.min.js'></script>-->
 		<script type="text/javascript" src="./lib/jquery.min.js"></script>
 		<script type="text/javascript" src="./lib/echarts.min.js"></script>
@@ -27,211 +28,111 @@
 		<div class="main_body">
 			<!--项目总览、阳光审批-->
 			<div class="content_left">
+				<!--搜索-->
+				<div class="searchbox">
+					<div class="searchall">
+						<input type="text" class="sudoTxt" id="sudoTxt" placeholder="城乡医疗救助资金" />
+						<button class="sudoBtn">查询</button>
+					</div>
+				</div>
 				<!--项目总览-->
 				<div class="projectOverview noActive" data-id="0">
-              <!--      <div class="boxcontainer">
-                        &lt;!&ndash;内层&ndash;&gt;
-                        <div class="zindex">
-                            <div class="topcon">
-                                <div class="t1"></div>
-                                <div class="t2"></div>
-                                <div class="t3"></div>
-                                <div class="t4"></div>
-                                <div class="t5"></div>
-                            </div>
-                            <div class="midcon">
-                                <div class="m1"></div>
-                                <div class="m2"></div>
-                            </div>
-                            <div class="botcon">
-                                <div class="b1"></div>
-                                <div class="b2"></div>
-                            </div>
-                        </div>
-                        &lt;!&ndash;外层&ndash;&gt;
-                        <div class="zindex2">
-                            <div class="topcon">
-                                <div class="t1"></div>
-                            </div>
-                            <div class="botcon">
-                                <div class="b1"></div>
-                            </div>
-                        </div>
-
-                    </div>-->
-					<div class="slider_title">
-						<p class="slider_icon"></p>
-						<span>项目总览</span>
-					</div>
-					<div class="projectNum">
-						<div class="list_title">
-							<p class="list_icon"></p>
-							<span>补贴项目数量</span>
+					<div class="itemtitle">项目总览</div>
+					<div class="probox">
+						<div class="proitem">
+							<div class="pro1">申报人次</div>
+							<div class="numbox">
+								<div class="numitem">2</div>
+								<div class="numitem">2</div>
+								<div class="numitem">2</div>
+								<div class="unititem">个</div>
+							</div>
 						</div>
-						<div class="list_inf" id="specialnum">
-							<span>246</span><span>个</span>
-						</div>
-					</div>
-					<div class="subsidiesPrice">
-						<div class="list_title">
-							<p class="list_icon"></p>
-							<span>发放补贴总金额</span>
-						</div>
-						<div class="list_inf">
-							<span>89.09</span><span>亿元</span>
+						<div class="proitem">
+							<div class="pro1">发放补贴总金额</div>
 						</div>
 					</div>
 				</div>
 				<!--阳光审批-->
 				<div class="sunApproval noActive" data-id="1">
-					<div class="slider_title">
-						<p class="slider_icon"></p>
-						<span>阳光审批</span>
-					</div>
-					<div class="sunClass">
-						<div class="list_title">
-							<p class="list_icon"></p>
-							<span>申报人次</span>
+					<div class="itemtitle">阳光审批</div>
+					<div class="sunbox">
+						<div class="baritem">
+							<div class="sun1">申报人次</div>
+							<div id="bar2"></div>
 						</div>
-						<div class="sunInf">
-							<p>2121346</p>
+						<div class="baritem">
+							<div class="sun1">部门审查拦截总人次</div>
+							<div id="bar3"></div>
 						</div>
-					</div>
-					<div class="sunClass">
-						<div class="list_title">
-							<p class="list_icon"></p>
-							<span>部门审查拦截总人次</span>
+						<div class="baritem">
+							<div class="sun1">大数据拦截总人次</div>
+							<div id="bar4"></div>
 						</div>
-						<div class="sunInf">
-							<p>2891</p>
+						<div>
+							<div class="sun1">反支付不当总金额</div>
+							<div id="bar5"></div>
 						</div>
 					</div>
-					<div class="sunClass">
-						<div id="bar2" style="width: 250px; height: 50px;padding: 10px;"></div>
-					</div>
-				</div>
 
+				</div>
 			</div>
 			<!--地图显示-->
 			<div class="content_middle">
+				<!--信息汇总-->
 				<div class="maptop">
-					<div class="sudo">
-						<input type="text" id="sudoTxt" placeholder="城乡医疗救助资金" />
-						<input type="button" class="sudoBtn"   value="查询" />
-					</div>
-					<input type="button" class="infBtn" value="信息汇总" />
+					<div class="infBtn">信息汇总</div>
 				</div>
+				<!--地图-->
 				<div class="mapshow" id="mapshow">
-					地图显示
+
 				</div>
 			</div>
 			<!--实时监管、投诉举报、公众服务-->
 			<div class="content_right">
 				<!--实时监管-->
 				<div class="realTimeRe noActive">
-					<div class="slider_title">
-						<p class="slider_icon"></p>
-						<span>实时监管</span>
-					</div>
-					<div class="realTimeRe_inf">
-						<div>
-							<div class="list_title">
-								<p class="list_icon"></p>
-								<span>当前超期预警</span>
-							</div>
-							<div class="list_inf">
-								<span>246</span><span>次</span>
-							</div>
-						</div>
-						<div>
-							<div class="list_title">
-								<p class="list_icon"></p>
-								<span>已处理超期</span>
-							</div>
-							<div class="list_inf">
-								<span>246</span><span>次</span>
-							</div>
-						</div>
-						<div>
-							<div class="list_title">
-								<p class="list_icon"></p>
-								<span>累积超期预警</span>
-							</div>
-							<div class="list_inf">
-								<span>246</span><span>次</span>
-							</div>
-						</div>
-						<div>
-							<div class="list_title">
-								<p class="list_icon"></p>
-								<span>资金发放异常预警</span>
-							</div>
-							<div class="list_inf">
-								<span>246</span><span>次</span>
-							</div>
-						</div>
-					</div>
+					<div class="itemtitle">实时监管</div>
+					<div id="bar1"></div>
 				</div>
 				<!--投诉举报-->
 				<div class="complaintReporting">
-					<div class="slider_title">
-						<p class="slider_icon"></p>
-						<span>投诉举报</span>
-					</div>
-					<div class="complaintReporting_inf">
-						<div class="complaintReporting_inf_top">
-							<div>
-								<div class="list_title">
-									<p class="list_icon"></p>
-									<span>累积投诉</span>
-								</div>
-								<div class="list_inf">
-									<span>1246</span><span>次</span>
-								</div>
-							</div>
-							<div>
-								<div class="list_title">
-									<p class="list_icon"></p>
-									<span>累积投诉</span>
-								</div>
-								<div class="list_inf">
-									<span>1246</span><span>次</span>
-								</div>
-							</div>
-						</div>
-						<div class="complaintReporting_inf_bottom">
-							<div class="list_title">
-								<p class="list_icon"></p>
-								<span>累积投诉</span>
-							</div>
-							<div class="list_inf">
-								<span>1246</span><span>次</span>
-							</div>
-						</div>
-					</div>
+					<div class="itemtitle">投诉举报</div>
+					<!--<div id="container"></div>-->
 				</div>
 				<!--公众服务-->
 				<div class="publicService">
-					<div class="slider_title">
-						<p class="slider_icon"></p>
-						<span>公众服务</span>
-					</div>
-					<div class="publicService_inf">
-						<div class="publicService_inf_top">
-							<div class="list_title">
-								<p class="list_icon"></p>
-								<span>微信公众号</span>
+					<div class="itemtitle">公众服务</div>
+					<div class="pubbox">
+						<div class="listitem">
+							<div class="imgicon">
+								<img src="img/pub1.png" />
 							</div>
-							<div class="list_inf">
-								<span>988</span><span>次</span>
+							<div class="icontext">
+								微信公众号
 							</div>
+							<div class="iconnum">7356</div>
 						</div>
-						<div class="publicService_inf_bottom">
-							<div id="bar1" style="width: 300px; height: 300px;"></div>
+						<div class="listitem">
+							<div class="imgicon">
+								<img src="img/pub2.png" />
+							</div>
+							<div class="icontext">
+								网厅
+							</div>
+							<div class="iconnum">7356</div>
+						</div>
+						<div class="listitem">
+							<div class="imgicon">
+								<img src="img/pub3.png" />
+							</div>
+							<div class="icontext">
+								自助一体机
+							</div>
+							<div class="iconnum">7356</div>
 						</div>
 					</div>
 				</div>
-                <!--<div id="container"></div>-->
 			</div>
 		</div>
 

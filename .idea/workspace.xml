@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65ba7980-85e5-45c6-9458-99f97a33dc47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/highcharts-3d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/highcharts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/reset.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/province.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/province.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/province.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/province.html" afterDir="false" />
@@ -26,15 +21,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="229" column="86" selection-start-line="229" selection-start-column="86" selection-end-line="229" selection-end-column="86" />
+            <state relative-caret-position="169">
+              <caret line="43" column="46" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="46" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -42,22 +35,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+            <state relative-caret-position="162">
+              <caret line="320" column="1" lean-forward="true" selection-start-line="320" selection-start-column="1" selection-end-line="320" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/province.html">
+        <entry file="file://$PROJECT_DIR$/css/reset.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+            <state relative-caret-position="150">
+              <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#43#693#0" />
+                <element signature="e#712#1468#0" />
+                <element signature="e#9709#12410#0" />
+                <element signature="e#15240#19484#0" />
               </folding>
             </state>
           </provider>
@@ -66,64 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/province.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="621" lean-forward="true" selection-start-line="621" selection-end-line="621" />
-              <folding>
-                <element signature="e#43#693#0" />
-                <element signature="e#712#1468#0" />
-                <element signature="e#9801#12368#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/politicalStability.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="231" column="37" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
-              <folding>
-                <element signature="e#501#5863#0" />
-                <element signature="e#6681#10428#0" />
-                <element signature="e#14783#19207#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3298">
-              <caret line="279" column="81" selection-start-line="279" selection-start-column="43" selection-end-line="279" selection-end-column="81" />
-              <folding>
-                <element signature="e#1198#2092#0" />
-                <element signature="e#2167#2994#0" />
-                <element signature="e#3430#3991#0" />
-                <element signature="e#4050#5435#0" />
-                <element signature="e#13279#24700#0" />
-                <element signature="e#24735#29260#0" />
-                <element signature="e#29296#34321#0" />
-                <element signature="e#34356#43911#0" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -139,36 +84,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>geoCoordMap</find>
-      <find>echarts</find>
-      <find>convertData</find>
-      <find>features</find>
-      <find>console</find>
-      <find>成都</find>
-      <find>遂宁</find>
-      <find>names</find>
-      <find>formatter</find>
-      <find>script</find>
-      <find>infWrap_bottom</find>
-      <find>infWrap</find>
-      <find>closeInf</find>
-      <find>500</find>
-      <find>echarts-gl</find>
-      <find>option</find>
-      <find>myChart.on</find>
-      <find>regionHeight</find>
-      <find>shadow</find>
-      <find>Chart</find>
-      <find>Highcharts.com</find>
-      <find>Chart title</find>
-      <find>mapshow</find>
-      <find>投诉举报</find>
       <find>noActive</find>
-      <find>myChart</find>
       <find>html</find>
       <find>.content_left</find>
       <find>凉山彝族自治州</find>
+      <find>mapshow1</find>
       <find>initEcharts</find>
+      <find>content_middle</find>
+      <find>content_right</find>
+      <find>complaintReporting</find>
+      <find>publicService</find>
+      <find>wrap</find>
+      <find>slider_title</find>
+      <find>searchbox</find>
+      <find>1400</find>
+      <find>myChart</find>
+      <find>#0b5edd</find>
+      <find>color</find>
+      <find>initEchartsBar1</find>
+      <find>sunApproval</find>
+      <find>sudoBtn</find>
+      <find>option</find>
+      <find>sudoTxt</find>
+      <find>realTimeRe</find>
+      <find>maptop</find>
+      <find>#0e67e6</find>
+      <find>projectOverview</find>
+      <find>sunbox</find>
+      <find>probox</find>
+      <find>mapshow</find>
+      <find>bar2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,18 +132,18 @@
         <option value="$PROJECT_DIR$/lib/highcharts-3d.js" />
         <option value="$PROJECT_DIR$/lib/highcharts.js" />
         <option value="$PROJECT_DIR$/lib/jquery.min.js" />
-        <option value="$PROJECT_DIR$/js/province.js" />
         <option value="$PROJECT_DIR$/view/province.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/js/province.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="281" />
-    <option name="y" value="67" />
-    <option name="width" value="934" />
+    <option name="x" value="532" />
+    <option name="y" value="216" />
+    <option name="width" value="837" />
     <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -207,6 +152,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,7 +184,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,6 +195,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\yinhai\benefitpeople\css" />
       <recent name="E:\yinhai\benefitpeople\lib" />
       <recent name="E:\yinhai\benefitpeople\view" />
     </key>
@@ -279,17 +225,18 @@
       <workItem from="1562808400004" duration="26603000" />
       <workItem from="1562854352115" duration="8442000" />
       <workItem from="1562892990144" duration="25930000" />
-      <workItem from="1562933796407" duration="587000" />
+      <workItem from="1562933796407" duration="11587000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61562000" />
+    <option name="totallyTimeSpent" value="72562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19866072" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.42177722" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="YhView" order="2" weight="0.3296131" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -349,11 +296,6 @@
           <url>file://$PROJECT_DIR$/js/index.js</url>
           <line>83</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/js/index.js</url>
-          <line>286</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -493,30 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/province.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/province.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/working/gaoxin/gaoxin-govcomb-bscreen/src/main/resources/static/public/js/politicalStability.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -546,36 +464,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
+    <entry file="file://$PROJECT_DIR$/view/province.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        <state relative-caret-position="408">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="621" lean-forward="true" selection-start-line="621" selection-end-line="621" />
+        <state relative-caret-position="150">
+          <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
           <folding>
             <element signature="e#43#693#0" />
             <element signature="e#712#1468#0" />
-            <element signature="e#9801#12368#0" />
+            <element signature="e#9709#12410#0" />
+            <element signature="e#15240#19484#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/province.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="229" column="86" selection-start-line="229" selection-start-column="86" selection-end-line="229" selection-end-column="86" />
+        <state relative-caret-position="169">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="46" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="320" column="1" lean-forward="true" selection-start-line="320" selection-start-column="1" selection-end-line="320" selection-end-column="1" />
         </state>
       </provider>
     </entry>

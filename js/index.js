@@ -82,8 +82,9 @@ $(function () {
     //地图初始化数据
     //地理位置name--显示与隐藏:show---请求过来的数据:data---控制颜色scatter:colorIdx
     function initEcharts(show,colorIdx){
-        option = {
-            backgroundColor: '#7babe8', //背景颜色
+        var myChart = echarts.init(document.getElementById('mapshow'));
+        var option = {
+            backgroundColor: 'transparent', //背景颜色
             geo3D: {
                 show: true,
                 map: '四川',
@@ -285,7 +286,7 @@ $(function () {
     function initEchartsBar() {
         var myChart = echarts.init(document.getElementById('bar1'));
         var option = {
-            backgroundColor: '#02165d',
+            // backgroundColor: '#02165d',
             tooltip: {
                 show: false,
                 trigger: 'axis'
@@ -377,16 +378,17 @@ $(function () {
     }
 
     //横向bar
-    function initEchartsBar1() {
-        var myChart = echarts.init(document.getElementById('bar2'));
+    function initEchartsBar1(id,data,idx) {
+        var myChart = echarts.init(document.getElementById(id));
         var myColor = ['#0743f2','#d15000','#009c9e','#f50161'];
+        var myColor1 = ['#3698fd','#efa604','#00cfd1','#ff613d'];
         var option = {
             grid: {
                 show: false,
-                left: '12%',
-                right: '30%',
+                left: '4%',
+                right: '20%',
             },
-            backgroundColor: '#121B2C',        //背景色
+            // backgroundColor: '#121B2C',        //背景色
             xAxis: {show: false},
             yAxis: [ {
                 show: false,
@@ -404,10 +406,13 @@ $(function () {
                 },
                 itemStyle: {
                     normal: {
-                        color: function(params) {
-                            var num = myColor.length;
-                            return myColor[params.dataIndex % num]
-                        },
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: myColor1[idx-2]
+                        }, {
+                            offset: 1,
+                            color: myColor[idx-2]
+                        }]),
                     }
                 },
                 data: ['闽DZ0175']
@@ -421,7 +426,7 @@ $(function () {
                             fontSize: '16',
                         }
                     },
-                    data:  [11]
+                    data:  data
                 }],
 
             series: [
@@ -432,17 +437,17 @@ $(function () {
                         barBorderRadius: 20,
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: '#f7734e'
+                            color: myColor[idx-2]
                         }, {
                             offset: 1,
-                            color: '#e12945'
+                            color: myColor1[idx-2]
                         }]),
                         shadowColor: 'rgba(0, 0, 0, 0.5)',
                         shadowBlur: 10
                     },
-                    barWidth: 20,
+                    barWidth: 18,
                     barMinHeight: 20,
-                    data: [50]
+                    data: data
                 },
                 {
                     name: '外框',
@@ -455,14 +460,13 @@ $(function () {
                     },
                     barGap: '-100%',
                     z: 0,
-                    barWidth: 21,
+                    barWidth: 20,
                     data: [100]
                 }
             ]
         };
         myChart.setOption(option);
     }
-
 
     //圆饼图
     function initHighPie() {
@@ -612,37 +616,30 @@ $(function () {
         document.getElementsByTagName("head")[0].appendChild(script);
     };
 
-    //***********************************************************************************************
-    //map
-    var myChart = echarts.init(document.getElementById('mapshow'));
-    var option = {};
-
-    //bar
 
 
 
+//***************************************
     initEcharts(true,0);
     // initHighPie();
     initEchartsBar();
-    initEchartsBar1();
+    initEchartsBar1('bar2',[11], 2);
+    initEchartsBar1('bar3',[20], 3);
+    initEchartsBar1('bar4',[60], 4);
+    initEchartsBar1('bar5',[20], 5);
     // initEchartsBar();
     //项目总览,阳光审批,实时监管选中
     $('.noActive').click(function(){
         console.log("data-id",$(this).data("id"));
         if($(this).hasClass('active')){
             $(this).removeClass('active')
-            // option.series[1].label.show = false;
-            // option.series[1].symbolSize = 0;
             initEcharts(false, $(this).data("id"))
         } else {
             $('.main_body').find('.active').removeClass('active');
             $(this).addClass('active')
-            // option.series[0].label.show = true;
-            // option.series[0].symbolSize = 16;
             initEcharts(true, $(this).data("id"))
         }
-        // myChart.setOption(option);
-    })
+    });
     //搜索按钮
     $('.sudoBtn').click(function(){
         alert($('#sudoTxt').val());
@@ -677,9 +674,9 @@ $(function () {
         $(".incircle").show();
     })
 
-    $(window).resize(function() {
-        myChart.resize();
-    });
+    // $(window).resize(function() {
+    //     myChart.resize();
+    // });
 
 
 

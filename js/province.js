@@ -44,9 +44,9 @@ $(function () {
 
     //初始化数据
     function initEcharts(){
-        myChart1 = echarts.init(document.getElementById('mapshow1'), 'shine');
-        option = {
-            backgroundColor: '#051956', //背景颜色
+        myChart1 = echarts.init(document.getElementById('mapshowcity'));
+        option1 = {
+            backgroundColor: 'transparent', //背景颜色
             geo: {
                 show: true,
                 map: localStorage.getItem('address'),
@@ -168,23 +168,20 @@ $(function () {
                 }
             ]
         };
-        myChart1.setOption(option);
+        myChart1.setOption(option1);
         //拿到当前点击区域的去域名
         myChart1.on('click', function (params) {
             alert(params.name)
         });
     }
 
-
-
-
     initEcharts();
     //项目总览,阳光审批,实时监管选中
     $('.noActive').click(function(){
         $('.noActive').removeClass('active')
         $(this).addClass('active')
-        option.series[0].label.normal.show=true
-        myChart1.setOption(option);
+        option1.series[0].label.normal.show=true
+        myChart1.setOption(option1);
     })
     //信息汇总弹窗
     $('.infBtn').click(function(){
