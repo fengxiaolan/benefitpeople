@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src='https://gallery.echartsjs.com/dep/jquery/jquery.min.js'></script>
+		<script type="text/javascript" src="https://gallerybox.echartsjs.com/dep/echarts/latest/echarts.min.js"></script>
+		<script type="text/javascript" src="https://echarts.baidu.com/resource/echarts-gl-latest/dist/echarts-gl.min.js"></script>
+		<script type="text/javascript" src="../lib/map/aba.js"></script>
+		<script type="text/javascript" src="../lib/map/bazhong.js"></script>
+		<script type="text/javascript" src="../lib/map/chengdu.js"></script>
+		<script type="text/javascript" src="../lib/map/dazhou.js"></script>
+		<script type="text/javascript" src="../lib/map/deyang.js"></script>
+		<script type="text/javascript" src="../lib/map/ganzi.js"></script>
+		<script type="text/javascript" src="../lib/map/guangan.js"></script>
+		<script type="text/javascript" src="../lib/map/guangyuan.js"></script>
+		<script type="text/javascript" src="../lib/map/leshan.js"></script>
+		<script type="text/javascript" src="../lib/map/liangshan.js"></script>
+		<script type="text/javascript" src="../lib/map/luzhou.js"></script>
+		<script type="text/javascript" src="../lib/map/meishan.js"></script>
+		<script type="text/javascript" src="../lib/map/mianyang.js"></script>
+		<script type="text/javascript" src="../lib/map/nanchong.js"></script>
+		<script type="text/javascript" src="../lib/map/neijiang.js"></script>
+		<script type="text/javascript" src="../lib/map/panzhihua.js"></script>
+		<script type="text/javascript" src="../lib/map/suining.js"></script>
+		<script type="text/javascript" src="../lib/map/yaan.js"></script>
+		<script type="text/javascript" src="../lib/map/yibin.js"></script>
+		<script type="text/javascript" src="../lib/map/zigong.js"></script>
+		<script type="text/javascript" src="../lib/map/ziyang.js"></script>
+
+
+		<script type="text/javascript" src="../js/province.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="header">
+
+			</div>
+			<div class="main_body">
+				<!--项目总览、阳光审批-->
+				<div class="content_left">
+					<div class="projectOverview noActive">
+						项目总览
+					</div>
+					<div class="sunApproval noActive">
+						阳光审批
+					</div>
+				</div>
+				<!--地图显示-->
+				<div class="content_middle">
+					<div class="maptop">
+						<div class="sudo">
+							<input type="text" placeholder="城乡医疗救助资金" />
+							<input type="button" value="查询" />
+						</div>
+						<input type="button" class="infBtn" value="信息汇总" />
+					</div>
+					<div class="mapshow" id="mapshow">
+						地图显示
+					</div>
+				</div>
+				<!--实时监管、投诉举报、公众服务-->
+				<div class="content_right">
+					<div class="realTimeRe noActive">
+						实时监管
+					</div>
+					<div class="complaintReporting">
+						投诉举报
+					</div>
+					<div class="publicService">
+						公众服务
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--点击投诉举报显示该弹出框-->
+		<div class="wrap">
+			<div class="wrap_center">
+				<div class="wrap_top">
+					投诉举报
+					<button class="closeBtn">X</button>
+				</div>
+				<div class="wrap_bottom">
+					<div>
+						信息分页展示
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--信息汇总wrap-->
+		<div class="infWrap">
+			<div class="infWrap_center">
+				<div class="infWrap_top">
+					信息汇总
+					<button class="closeInf">X</button>
+				</div>
+				<div class="infWrap_bottom">
+					<div>
+						信息展示
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

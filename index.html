@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src='https://gallery.echartsjs.com/dep/jquery/jquery.min.js'></script>
+		<!--<script type="text/javascript" src="https://gallerybox.echartsjs.com/dep/echarts/latest/echarts.min.js"></script>-->
+		<script type="text/javascript" src="./lib/echarts.min.js"></script>
+		<!--<script type="text/javascript" src="https://echarts.baidu.com/resource/echarts-gl-latest/dist/echarts-gl.min.js"></script>-->
+		<script type="text/javascript" src="./lib/echarts-gl.min.js"></script>
+		<script type="text/javascript" src="./lib/sichuan.js"></script>
+		<script type="text/javascript" src="./js/index.js"></script>
+
+		<!--<script src="lib/require.js" data-main="js/main" defer async="true" ></script>-->
+		<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+		<!--http://cdn.highcharts.com.cn/highcharts/highcharts-3d.js-->
+	</head>
+	<body>
+	<div class="main">
+		<div class="header">
+
+		</div>
+		<div class="main_body">
+			<!--项目总览、阳光审批-->
+			<div class="content_left">
+				<!--项目总览-->
+				<div class="projectOverview noActive">
+					<div class="slider_title">
+						<p class="slider_icon"></p>
+						<span>项目总览</span>
+					</div>
+					<div class="projectNum">
+						<div class="list_title">
+							<p class="list_icon"></p>
+							<span>补贴项目数量</span>
+						</div>
+						<div class="list_inf">
+							<span>246</span><span>个</span>
+						</div>
+					</div>
+					<div class="subsidiesPrice">
+						<div class="list_title">
+							<p class="list_icon"></p>
+							<span>发放补贴总金额</span>
+						</div>
+						<div class="list_inf">
+							<span>89.09</span><span>亿元</span>
+						</div>
+					</div>
+				</div>
+				<!--阳光审批-->
+				<div class="sunApproval noActive">
+					<div class="slider_title">
+						<p class="slider_icon"></p>
+						<span>阳光审批</span>
+					</div>
+					<div class="sunClass">
+						<div class="list_title">
+							<p class="list_icon"></p>
+							<span>申报人次</span>
+						</div>
+						<div class="sunInf">
+							<p>2121346</p>
+						</div>
+					</div>
+					<div class="sunClass">
+						<div class="list_title">
+							<p class="list_icon"></p>
+							<span>部门审查拦截总人次</span>
+						</div>
+						<div class="sunInf">
+							<p>2891</p>
+						</div>
+					</div>
+					<div class="sunClass">
+						<div class="list_title">
+							<p class="list_icon"></p>
+							<span>大数据拦截总人次</span>
+						</div>
+						<div class="sunInf">
+							<p>2891</p>
+						</div>
+					</div>
+					<div class="sunClass">
+						<div class="list_title">
+							<p class="list_icon"></p>
+							<span>反不当支付总金额</span>
+						</div>
+						<div class="sunInf">
+							<p>189134</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--地图显示-->
+			<div class="content_middle">
+				<div class="maptop">
+					<div class="sudo">
+						<input type="text" id="sudoTxt" placeholder="城乡医疗救助资金" />
+						<input type="button" class="sudoBtn"   value="查询" />
+					</div>
+					<input type="button" class="infBtn" value="信息汇总" />
+				</div>
+				<div class="mapshow" id="mapshow">
+					地图显示
+				</div>
+			</div>
+			<!--实时监管、投诉举报、公众服务-->
+			<div class="content_right">
+				<!--实时监管-->
+				<div class="realTimeRe noActive">
+					<div class="slider_title">
+						<p class="slider_icon"></p>
+						<span>实时监管</span>
+					</div>
+					<div class="realTimeRe_inf">
+						<div>
+							<div class="list_title">
+								<p class="list_icon"></p>
+								<span>当前超期预警</span>
+							</div>
+							<div class="list_inf">
+								<span>246</span><span>次</span>
+							</div>
+						</div>
+						<div>
+							<div class="list_title">
+								<p class="list_icon"></p>
+								<span>已处理超期</span>
+							</div>
+							<div class="list_inf">
+								<span>246</span><span>次</span>
+							</div>
+						</div>
+						<div>
+							<div class="list_title">
+								<p class="list_icon"></p>
+								<span>累积超期预警</span>
+							</div>
+							<div class="list_inf">
+								<span>246</span><span>次</span>
+							</div>
+						</div>
+						<div>
+							<div class="list_title">
+								<p class="list_icon"></p>
+								<span>资金发放异常预警</span>
+							</div>
+							<div class="list_inf">
+								<span>246</span><span>次</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--投诉举报-->
+				<div class="complaintReporting">
+					<div class="slider_title">
+						<p class="slider_icon"></p>
+						<span>投诉举报</span>
+					</div>
+					<div class="complaintReporting_inf">
+						<div class="complaintReporting_inf_top">
+							<div>
+								<div class="list_title">
+									<p class="list_icon"></p>
+									<span>累积投诉</span>
+								</div>
+								<div class="list_inf">
+									<span>1246</span><span>次</span>
+								</div>
+							</div>
+							<div>
+								<div class="list_title">
+									<p class="list_icon"></p>
+									<span>累积投诉</span>
+								</div>
+								<div class="list_inf">
+									<span>1246</span><span>次</span>
+								</div>
+							</div>
+						</div>
+						<div class="complaintReporting_inf_bottom">
+							<div class="list_title">
+								<p class="list_icon"></p>
+								<span>累积投诉</span>
+							</div>
+							<div class="list_inf">
+								<span>1246</span><span>次</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--公众服务-->
+				<div class="publicService">
+					<div class="slider_title">
+						<p class="slider_icon"></p>
+						<span>公众服务</span>
+					</div>
+					<div class="publicService_inf">
+						<div class="publicService_inf_top">
+							<div class="list_title">
+								<p class="list_icon"></p>
+								<span>微信公众号</span>
+							</div>
+							<div class="list_inf">
+								<span>988</span><span>次</span>
+							</div>
+						</div>
+						<div class="publicService_inf_bottom">
+							<div>
+								<div class="list_title">
+									<p class="list_icon"></p>
+									<span>网厅</span>
+								</div>
+								<div class="list_inf">
+									<span>240</span><span>次</span>
+								</div>
+							</div>
+							<div>
+								<div class="list_title">
+									<p class="list_icon"></p>
+									<span>自助一体机</span>
+								</div>
+								<div class="list_inf">
+									<span>2</span><span>次</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--点击投诉举报显示该弹出框-->
+	<div class="wrap">
+		<div class="wrap_center">
+			<div class="wrap_top">
+				投诉举报
+				<button class="closeBtn">X</button>
+			</div>
+			<div class="wrap_bottom">
+				<div>
+					信息分页展示
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--信息汇总wrap-->
+	<div class="infWrap">
+		<div class="infWrap_center">
+			<div class="infWrap_top">
+				信息汇总
+				<button class="closeInf">X</button>
+			</div>
+			<div class="infWrap_bottom">
+				<div class="infWrap_bottom_top">
+					<ul class="list_ul">
+						<li>四川省</li>
+						<li>
+							<span class="titleStyle">项目补贴总数:</span>
+							<span class="numStyle">2946<span>次</span></span>
+						</li>
+						<li>
+							<span class="titleStyle">申报总人次:</span>
+							<span class="numStyle">2946<span>次</span></span>
+						</li>
+						<li>
+							<span class="titleStyle">超期预警总次数:</span>
+							<span class="numStyle">2946<span>次</span></span>
+						</li>
+					</ul>
+					<div class="changeShow">
+						<input type="button" class="btn btnActive" id="changeTable" value="表格" />
+						<input type="button" class="btn" id="changeCircle" value="饼图" />
+					</div>
+				</div>
+				<div class="infWrap_bottom_inf">
+					<div class="intable">
+						<br />
+						<table class="otable"  border="1" cellspacing="0" cellpadding="0">
+							<tr>
+								<td>编号</td>
+								<td>地市</td>
+								<td>补贴项目数</td>
+								<td>申报人次</td>
+								<td>超期预警次数</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>成都市</td>
+								<td>245</td>
+								<td>2015836</td>
+								<td>520</td>
+							</tr>
+						</table>
+					</div>
+					<div class="incircle">
+						<br />
+						<div>
+							圆饼图
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+
+
+</html>
