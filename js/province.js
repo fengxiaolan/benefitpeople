@@ -15,7 +15,6 @@ $(function () {
 
     //获取地区名称和经纬度
     var getGeoCoordMap = function(name) {
-        // name = name ? name : 'china';
         /*获取地图数据*/
         var geoCoordMap = {};
         var mapFeatures = echarts.getMap(name).geoJson.features;

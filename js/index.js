@@ -26,21 +26,29 @@
     var color1 = ['#ffff00', '#ff0000', '#33ffff'];
     var color = ['#efcc99', '#ffd942', '#ffff00'];
 
+    var citys = ['aba','bazhong','chengdu','dazhou','deyang','ganzi',
+        'guangan','guangyuan','leshan','liangshan','luzhou','meishan', 'mianyang','nanchong',
+        'neijiang','panzhihua','suining','yaan','yibin','yaan','zigong','ziyang'];
+    var citytext = ['阿坝藏族羌族自治州','巴中市','成都市','达州市','德阳市','甘孜藏族自治州',
+        '广安市','广元市','乐山市','凉山彝族自治州','泸州市','眉山市','绵阳市','南充市',
+        '内江市','攀枝花市','遂宁市','宜宾市','雅安市','自贡市','资阳市'];
+
+
     //获取地区名称和经纬度
-    var getGeoCoordMap = function(name) {
+    var getGeoCoordMap = function(pname) {
         /*获取地图数据*/
         var geoCoordMap = {};
-        var mapFeatures = echarts.getMap(name).geoJson.features;
+        var mapFeatures = echarts.getMap(pname).geoJson.features;
         mapFeatures.forEach(function(v) {
             var name = v.properties.name; // 地区名称
-            geoCoordMap[name] = v.properties.cp; // 地区经纬度
+            geoCoordMap[name] = pname == '四川' ? v.properties.cp : v.properties.centroid; // 地区经纬度
         });
         return geoCoordMap;
     };
 
     //转化数据
     var convertData = function(data) { // 转换数据
-        var geoCoordMap = getGeoCoordMap('四川');
+        var geoCoordMap = getGeoCoordMap(mapName);
         var res = [];
         for (var i = 0; i < data.length; i++) {
             var geoCoord = geoCoordMap[data[i].name]; // 数据的名字对应的经纬度
@@ -54,14 +62,29 @@
         return res;
     };
 
-    //地理位置name--显示与隐藏:show---请求过来的数据:data---控制颜色scatter:colorIdx
-    function initEcharts(show,colorIdx,data){
+    //地理名称name--显示与隐藏:show---请求过来的数据:data---控制颜色scatter:colorIdx
+    function initEcharts(pName,isshow,colorIdx){
         var myChart = echarts.init(document.getElementById('mapshow'));
+        var data = [];
+        if(pName == '四川'){
+            data = scData;
+        } else {
+            var cData = echarts.getMap(pName).geoJson.features.map(item => {
+                return {
+                    name: item.properties.name,
+                    value: 10
+                }
+            });
+            data = cData;
+        }
         var option = {
             backgroundColor: 'rgba(0,0,0,0)',
-            geo3D: {
+            grid: {
+                top: '2%',
+            },
+            geo: {
                 show: true,
-                map: '四川',
+                map: pName,
                 roam: false,
                 zoom: 1.2,
                 environment: 'rgba(0,0,0,0)',
@@ -70,8 +93,8 @@
                 // }, {
                 //     offset: 1, color: 'rgba(0,0,0,0)'
                 // }], false),
-                boxHeight: 6,
-                regionHeight: 2,
+                // boxHeight: 6,
+                // regionHeight: 2,
                 shading: 'color', //不受light影响
                 label: {
                     show: true,
@@ -86,25 +109,11 @@
                 },
                 itemStyle: {
                     areaColor: '#002094',
-                    // areaColor: {
-                    //     type: 'radial',
-                    //     x: 1,
-                    //     y: 1,
-                    //     r: 1,
-                    //     colorStops: [{
-                    //         offset: 0,
-                    //         color: 'rgba(147, 235, 248, .9)' // 0% 处的颜色
-                    //     }, {
-                    //         offset: 1,
-                    //         color: 'rgba(147, 235, 248, .9)' // 100% 处的颜色
-                    //     }],
-                    //     globalCoord: false // 缺省为 false
-                    // },
                     opacity: 0.8,
-                    borderWidth: 0.8,
+                    borderWidth: 1,
                     borderColor: '#0e6aee',
-                    // shadowColor: '#fff', //阴影
-                    // shadowBlur: 100
+                    shadowColor: '#1177fe', //阴影
+                    shadowBlur: 2
                 },
                 emphasis:{
                     label: {
@@ -161,9 +170,9 @@
                 },
             },
             series: [
-                {
-                    name: '省份',
-                    mapType: '四川',
+               /* {
+                    name: 'map',
+                    mapType: pName,
                     type: 'map3D',
                     coordinateSystem: 'geo3D',
                     environment: '#000',
@@ -199,16 +208,16 @@
                    roam: false,
                    aspectScale:1,//地图长宽比
                    zlevel: 10,
-                   data: convertData(scData)
-                },
+                   data: convertData(data)
+                },*/
                 {
                     name: '点',
-                    type: 'scatter3D',
-                    coordinateSystem: 'geo3D',
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
                     symbol: 'pin',
-                    symbolSize: show == true ? 16 : 0,
+                    symbolSize: isshow == true ? 16 : 0,
                     label: {
-                        show: show == true ? true : false,
+                        show: isshow == true ? true : false,
                         formatter: function(params) {
                             return params.data.value[2] + '次';
                         },
@@ -228,18 +237,49 @@
                         }
                     },
                     zlevel: 10,
-                    data: convertData(scData)
+                    data: convertData(data)
                 }
             ]
         };
         myChart.setOption(option);
         //地图区域块点击事件
         myChart.off("click");
-        myChart.on('click', function (params) {
-            //跳转到市请求
-            localStorage.setItem('address',params.name);
-            $('.content_middle').load('view/province.html')
-        });
+        if(pName == '四川'){
+            //四川省点击
+            myChart.on('dblclick', function (params) {
+                //跳转到市请求
+                localStorage.setItem('address',params.name);
+                // $('.content_middle').load('view/province.html');
+                mapName = params.name;
+                for (var i = 0; i < citytext.length; i++) {
+                    if (params.name === citytext[i]) {
+                        showCity(citys[i], citytext[i]);
+                        break;
+                    }
+                }
+                dataId = '';
+                $('.main_body').find('.active').removeClass('active');
+            });
+            myChart.on('click', function (params) {
+                // 左右侧改变值
+            });
+        } else {
+            //其他市区点击
+            myChart.on('dblclick', function (params) {
+                // mapName = '四川'; //返回
+                // initEcharts(mapName, false, 0)
+                //当前县区
+                if(dataId && mapName != '四川'){
+                    $('.detailname').text(params.name);
+                    $('.detailWrap').show();
+                }
+            });
+            myChart.on('click', function (params) {
+                //左右两侧改变
+
+            });
+        }
+
     }
 
     //项目总览
@@ -479,7 +519,7 @@
 
         //图形处理
         var datas = data.map((item,idx) => {
-            item.h = 10 + idx * 10;
+            item.h = 5 + idx * 15;
             return item;
         })
         var each = Highcharts.each,
@@ -608,10 +648,9 @@
     };
 
     //显示对应城市
-    //todo
-    function showCity(pName, Chinese_) {
-        loadBdScript('$' + pName + 'JS', 'lib/map/province/' + pName + '.js', function() {
-            initEcharts(Chinese_);
+    function showCity(pid,pName) {
+        loadBdScript('$' + pid + 'JS', './lib/map/' + pid + '.js', function() {
+            initEcharts(pName, false, 0);
         });
     }
 
@@ -656,8 +695,12 @@
 
 
 $(function () {
+    //全局地图名字
+    mapName = '四川';
+    //全局id
+    dataId = '';
     //地图
-    initEcharts(true,0);
+    initEcharts(mapName,false,0);
     //项目总览
     initProjectAll(456,23658);
     //立体园饼图
@@ -713,14 +756,15 @@ $(function () {
 
     //项目总览,阳光审批,实时监管选中
     $('.noActive').click(function(){
-        console.log("data-id",$(this).data("id"));
         if($(this).hasClass('active')){
-            $(this).removeClass('active')
-            initEcharts(false, $(this).data("id"))
+            dataId = '';
+            $(this).removeClass('active');
+            initEcharts(mapName, false, $(this).data("id"))
         } else {
+            dataId = $(this).data("id");
             $('.main_body').find('.active').removeClass('active');
             $(this).addClass('active')
-            initEcharts(true, $(this).data("id"))
+            initEcharts(mapName, true, $(this).data("id"))
         }
     });
 
@@ -732,6 +776,7 @@ $(function () {
 
     //信息汇总弹窗
     $('.infBtn').click(function(){
+        $('.infoname').text(mapName);
         $('.infWrap').show();
         infocount();
     });
@@ -765,6 +810,12 @@ $(function () {
     $('.dealshow').click(function(){
         $('.dealshow').removeClass('dealActive')
         $(this).addClass('dealActive');
+    });
+
+
+    //详情关闭
+    $('.detailCloseBtn').click(function () {
+        $('.detailWrap').hide();
     });
 
 

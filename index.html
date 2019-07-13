@@ -78,10 +78,11 @@
 				<div class="maptop">
 					<div class="datebox">
 						<input id="calendar" readonly>
-						<div class="icon"></div>
+						<!--<div class="icon"></div>-->
 					</div>
-					<div class="infBtn">信息汇总</div>
+
 				</div>
+				<div class="infBtn">信息汇总</div>
 				<!--地图-->
 				<div class="mapshow" id="mapshow">
 
@@ -90,7 +91,7 @@
 			<!--实时监管、投诉举报、公众服务-->
 			<div class="content_right">
 				<!--实时监管-->
-				<div class="realTimeRe noActive">
+				<div class="realTimeRe noActive" data-id="2">
 					<div class="itemtitle">实时监管</div>
 					<div id="bar1"></div>
 				</div>
@@ -159,7 +160,7 @@
 			<div class="infWrap_bottom">
 				<div class="infWrap_bottom_top">
 					<ul class="list_ul">
-						<li>四川省</li>
+						<li class="infoname">四川省</li>
 						<li>
 							<span class="titleStyle">项目补贴总数:</span>
 							<span class="numStyle"><span class="infonum1">2946</span><span>次</span></span>
@@ -226,6 +227,21 @@
 						<input type="button" class="dealshow dealActive" value="已处理" />
 						<input type="button" class="dealshow nodeal"  value="未处理" />
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--市点击地图的弹出框-->
+	<div class="detailWrap">
+		<div class="detailWrap_center">
+			<div class="detailWrap_top">
+				点击地图
+				<button class="detailCloseBtn">X</button>
+			</div>
+			<div class="detailWrap_box">
+				<div>
+					<div class="detailname">资中县</div>
 				</div>
 			</div>
 		</div>

@@ -5,56 +5,9 @@
 	box-sizing: border-box;
 }
 
-/*.boxcontainer{
-	width: 376px;
-	height: 303px;
-	position: relative;
-}
-.zindex{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-    margin-left: 6px;
-	margin-bottom: 6px;
-}
-.zindex .topcon{
-	height: 112px;
-	width: 100%;
-}
-zindex .topcon .t1{
-	height: 50px;
-	position: absolute;
-	left: 50%;
-}
-zindex .topcon .t2{
-	!*height: 112px;*!
-}
-zindex .topcon .t3{
-	height: 50px;
-	width: 50px;
-	background: url("../img/ltop.png");
-}
-zindex .topcon .t4{
-	height: 50px;
-	width: 50px;
-	background: url("../img/rtop.png");
-}
-.zindex .midcon{
-	height: 106px;
-}
-.zindex .botcon{
-	height: 90px;
-}
-
-.zindex2{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	border: 1px solid #053dcd;
-}*/
-
 .main{
 	width: 1920px;
+	height: 1080px;
 	margin: 0 auto;
 	background: url("../img/bigbg.jpg");
 	background-size: 100% 100%;
@@ -67,7 +20,7 @@ zindex .topcon .t4{
 }
 .main_body{
 	width: 100%;
-	margin-top: 20px;
+	margin-top: 30px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -129,13 +82,13 @@ zindex .topcon .t4{
 	width: 100%;
 	height: 310px;
 	background: #051956;
-	margin-top: 48px;
+	margin-top: 58px;
 	background: url("../img/projectOverview.png") no-repeat;
 	background-size: 100% 100%;
 	padding: 14px;
 }
 .projectOverview .probox{
-	padding: 22px 40px;
+	padding: 18px 40px 0;
 }
 .proitem .pro1{
 	font-size: 16px;
@@ -198,7 +151,7 @@ zindex .topcon .t4{
 	width: 100%;
 	height: 425px;
 	background: #051956;
-	margin-top: 28px;
+	margin-top: 20px;
 	background: url("../img/sunApproval.png") no-repeat;
 	background-size: 100% 100%;
 	padding: 14px;
@@ -230,6 +183,7 @@ zindex .topcon .t4{
 .content_middle{
 	flex: 1;
 	background: transparent;
+	position: relative;
 }
 .maptop{
 	height: 100px;
@@ -247,12 +201,12 @@ zindex .topcon .t4{
 	cursor: pointer;
 }
 .datebox #calendar{
-	width: 230px;
+	width: 220px;
 	height: 40px;
 	background: transparent;
 	color: #fff;
 	padding: 0 40px 0 10px;
-	/*background: url("../img/arrow.png") center right no-repeat;*/
+	background: url("../img/arrow.png") center right no-repeat;
 }
 .maptop .datebox .icon{
 	position: absolute;
@@ -263,9 +217,9 @@ zindex .topcon .t4{
 	background: url("../img/arrow.png") no-repeat;
 }
 
-.maptop .infBtn{
+ .infBtn{
 	position: absolute;
-	top: 20px;
+	top: 102px;
 	right: 10px;
 	width: 135px;
 	height: 81px;
@@ -275,10 +229,11 @@ zindex .topcon .t4{
 	font-size: 20px;
 	color: #dce5f9;
 	cursor: pointer;
+	z-index: 8;
 }
 .mapshow{
 	width: 100%;
-	height: 700px;
+	height: 760px;
 	text-align: center;
 }
 
@@ -308,7 +263,7 @@ zindex .topcon .t4{
 .complaintReporting{
 	width: 100%;
 	height: 308px;
-	margin-top: 15px;
+	margin-top: 20px;
 	background: #051956;
 	cursor: pointer;
 	background: url("../img/complaintReporting.png") no-repeat;
@@ -352,7 +307,7 @@ zindex .topcon .t4{
 .publicService{
 	width: 100%;
 	height: 238px;
-	margin-top: 15px;
+	margin-top: 20px;
 	background: url("../img/publicService.png") no-repeat;
 	background-size: 100% 100%;
 	padding: 14px;
@@ -411,6 +366,7 @@ zindex .topcon .t4{
 	position: fixed;
 	display: none;
 	top: 0;
+	z-index: 9;
 }
 .wrap_center{
 	width: 1000px;
@@ -472,6 +428,7 @@ zindex .topcon .t4{
 	position: fixed;
 	display: none;
 	top: 0;
+	z-index: 9;
 }
 .infWrap_center{
 	width: 1000px;
@@ -593,11 +550,62 @@ zindex .topcon .t4{
 }
 
 
+/*点击市*/
+.detailWrap{
+	display: none;
+	width: 100%;
+	height:100%;
+	background: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	z-index: 9;
+}
+
+.detailWrap_center{
+	width: 1000px;
+	height: 650px;
+	background: white;
+	margin: 50px auto;
+}
+.detailWrap_top{
+	height: 50px;
+	background: rgba(0,0,0,0.8);
+	overflow: hidden;
+	text-align: center;
+	line-height: 50px;
+	color: white;
+	font-size: 20px;
+	position: relative;
+}
+.detailWrap_box{
+	height: 530px;
+	text-align: left;
+	padding: 30px 20px;
+}
+.detailCloseBtn{
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 50%;
+	border: none;
+	outline: none;
+	font-size: 12px;
+	color: black;
+	background: white;
+	position: absolute;
+	top: calc(50% - 12px);
+	right: 20px;
+	cursor: pointer;
+}
+
 
 /*其他*/
 
 text.highcharts-credits {
 	display: none;
+}
+input::-webkit-input-placeholder{
+	color: #999;
 }
 
 
