@@ -5,25 +5,22 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-		<!--<script src='https://gallery.echartsjs.com/dep/jquery/jquery.min.js'></script>-->
 		<script type="text/javascript" src="./lib/jquery.min.js"></script>
 		<script type="text/javascript" src="./lib/echarts.min.js"></script>
 		<script type="text/javascript" src="./lib/echarts-gl.min.js"></script>
-		<!--<script type="text/javascript" src="./lib/highcharts-3d.js"></script>-->
-		<!--<script type="text/javascript" src="./lib/highcharts.js"></script>-->
+		<script type="text/javascript" src="./lib/highcharts.js"></script>
+		<script type="text/javascript" src="./lib/highcharts-3d.js"></script>
 		<script type="text/javascript" src="./lib/sichuan.js"></script>
-
-
-		<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
-		<script src="http://cdn.highcharts.com.cn/highcharts/highcharts-3d.js"></script>
-
+		<script src="./lib/jquery.canlendar.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		<script src="./lib/jquery-ui.js"></script>
         <script type="text/javascript" src="./js/index.js"></script>
 
 	</head>
 	<body>
 	<div class="main">
+		<!--顶部-->
 		<div class="header">
-
 		</div>
 		<div class="main_body">
 			<!--项目总览、阳光审批-->
@@ -32,7 +29,7 @@
 				<div class="searchbox">
 					<div class="searchall">
 						<input type="text" class="sudoTxt" id="sudoTxt" placeholder="城乡医疗救助资金" />
-						<button class="sudoBtn">查询</button>
+						<span class="sudoBtn">查询</span>
 					</div>
 				</div>
 				<!--项目总览-->
@@ -40,16 +37,14 @@
 					<div class="itemtitle">项目总览</div>
 					<div class="probox">
 						<div class="proitem">
-							<div class="pro1">申报人次</div>
-							<div class="numbox">
-								<div class="numitem">2</div>
-								<div class="numitem">2</div>
-								<div class="numitem">2</div>
-								<div class="unititem">个</div>
+							<div class="pro1">申报人次:</div>
+							<div class="numbox reportnum" id="chi031_count">
 							</div>
 						</div>
 						<div class="proitem">
-							<div class="pro1">发放补贴总金额</div>
+							<div class="pro1">发放补贴总金额:</div>
+							<div class="numbox subside" id="hb20_success_sum">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -81,6 +76,10 @@
 			<div class="content_middle">
 				<!--信息汇总-->
 				<div class="maptop">
+					<div class="datebox">
+						<input id="calendar" readonly>
+						<div class="icon"></div>
+					</div>
 					<div class="infBtn">信息汇总</div>
 				</div>
 				<!--地图-->
@@ -98,7 +97,19 @@
 				<!--投诉举报-->
 				<div class="complaintReporting">
 					<div class="itemtitle">投诉举报</div>
-					<!--<div id="container"></div>-->
+					<div class="comallname">累计投诉 <span class="comall">1256</span></div>
+					<div class="combox">
+						<div>
+							<div id="container1" style="width: 160px; height: 120px; margin: 0 auto"></div>
+							<div class="comname">当前投诉</div>
+							<div class="currcom">1256</div>
+						</div>
+						<div>
+							<div id="container2" style="width: 160px; height: 120px; margin: 0 auto"></div>
+							<div class="comname">已处理投诉 </div>
+							<div class="dealcom">1256</div>
+						</div>
+					</div>
 				</div>
 				<!--公众服务-->
 				<div class="publicService">
@@ -111,7 +122,7 @@
 							<div class="icontext">
 								微信公众号
 							</div>
-							<div class="iconnum">7356</div>
+							<div class="iconnum pubnum1">222</div>
 						</div>
 						<div class="listitem">
 							<div class="imgicon">
@@ -120,7 +131,7 @@
 							<div class="icontext">
 								网厅
 							</div>
-							<div class="iconnum">7356</div>
+							<div class="iconnum pubnum2">2222</div>
 						</div>
 						<div class="listitem">
 							<div class="imgicon">
@@ -129,7 +140,7 @@
 							<div class="icontext">
 								自助一体机
 							</div>
-							<div class="iconnum">7356</div>
+							<div class="iconnum pubnum3">2222</div>
 						</div>
 					</div>
 				</div>
@@ -138,20 +149,6 @@
 
 	</div>
 
-	<!--点击投诉举报显示该弹出框-->
-	<div class="wrap">
-		<div class="wrap_center">
-			<div class="wrap_top">
-				投诉举报
-				<button class="closeBtn">X</button>
-			</div>
-			<div class="wrap_bottom">
-				<div>
-					信息分页展示
-				</div>
-			</div>
-		</div>
-	</div>
 	<!--信息汇总wrap-->
 	<div class="infWrap">
 		<div class="infWrap_center">
@@ -165,20 +162,20 @@
 						<li>四川省</li>
 						<li>
 							<span class="titleStyle">项目补贴总数:</span>
-							<span class="numStyle">2946<span>次</span></span>
+							<span class="numStyle"><span class="infonum1">2946</span><span>次</span></span>
 						</li>
 						<li>
 							<span class="titleStyle">申报总人次:</span>
-							<span class="numStyle">2946<span>次</span></span>
+							<span class="numStyle"><span class="infonum2">2946</span><span>次</span></span>
 						</li>
 						<li>
 							<span class="titleStyle">超期预警总次数:</span>
-							<span class="numStyle">2946<span>次</span></span>
+							<span class="numStyle"><span class="infonum3">2946</span><span>次</span></span>
 						</li>
 					</ul>
 					<div class="changeShow">
-						<input type="button" class="btn btnActive" id="changeTable" value="表格" />
-						<input type="button" class="btn" id="changeCircle" value="饼图" />
+						<input type="button" class="btnshow btnActive" id="changeTable" value="表格" />
+						<input type="button" class="btnshow" id="changeCircle" value="饼图" />
 					</div>
 				</div>
 				<div class="infWrap_bottom_inf">
@@ -211,7 +208,28 @@
 			</div>
 		</div>
 	</div>
-	</body>
 
+	<!--点击投诉举报显示该弹出框-->
+	<div class="wrap">
+		<div class="wrap_center">
+			<div class="wrap_top">
+				投诉举报
+				<button class="closeBtn">X</button>
+			</div>
+			<div class="wrap_bottom">
+				<div>
+					<div class="complainsearch">
+                      <input>
+						<span>查询</span>
+					</div>
+					<div class="changedealShow">
+						<input type="button" class="dealshow dealActive" value="已处理" />
+						<input type="button" class="dealshow nodeal"  value="未处理" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
 
 </html>

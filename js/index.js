@@ -1,28 +1,3 @@
-
-$(function () {
-    //数据
-    var cdData = [
-        {name: '锦江区',value: 2},
-        {name: '青羊区',value: 2},
-        {name: '金牛区',value: 2},
-        {name: '武侯区',value: 2},
-        {name: '成华区',value: 2},
-        {name: '龙泉驿区',value: 2},
-        {name: '青白江区',value: 2},
-        {name: '新都区',value: 2},
-        {name: '温江区',value: 2},
-        {name: '双流区',value: 2},
-        {name: '郫都区',value: 2},
-        {name: '金堂县',value: 2},
-        {name: '大邑县',value: 2},
-        {name: '蒲江县',value: 2},
-        {name: '新津县',value: 2},
-        {name: '都江堰市',value: 2},
-        {name: '彭州市',value: 2},
-        {name: '邛崃市',value: 2},
-        {name: '崇州市',value: 2},
-        {name: '简阳市',value: 2},
-    ];
     var scData = [
         { name: '阿坝藏族羌族自治州', value: 0 },
         { name: '巴中市', value: 0 },
@@ -79,24 +54,22 @@ $(function () {
         return res;
     };
 
-    //地图初始化数据
     //地理位置name--显示与隐藏:show---请求过来的数据:data---控制颜色scatter:colorIdx
-    function initEcharts(show,colorIdx){
+    function initEcharts(show,colorIdx,data){
         var myChart = echarts.init(document.getElementById('mapshow'));
         var option = {
-            backgroundColor: 'transparent', //背景颜色
+            backgroundColor: 'rgba(0,0,0,0)',
             geo3D: {
                 show: true,
                 map: '四川',
                 roam: false,
                 zoom: 1.2,
-                environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0, color: '#002094'
-                }, {
-                    offset: 0.7, color: '#0e69e9'
-                }, {
-                    offset: 1, color: '#0e69e9'
-                }], false),
+                environment: 'rgba(0,0,0,0)',
+                // environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                //     offset: 0, color: 'rgba(0,0,0,0)'
+                // }, {
+                //     offset: 1, color: 'rgba(0,0,0,0)'
+                // }], false),
                 boxHeight: 6,
                 regionHeight: 2,
                 shading: 'color', //不受light影响
@@ -187,12 +160,6 @@ $(function () {
                     }
                 },
             },
-            // visualMap: {
-            //     show: false,
-            //     inRange: {
-            //         color: ['#f00','#0f0']
-            //     }
-            // },
             series: [
                 {
                     name: '省份',
@@ -270,16 +237,36 @@ $(function () {
         myChart.off("click");
         myChart.on('click', function (params) {
             //跳转到市请求
-            console.log(params)
             localStorage.setItem('address',params.name);
-            // location.href='view/province.html';
             $('.content_middle').load('view/province.html')
-
-            // 重新渲染左右侧请求
-            var num = 10000;
-            // $('#specialnum').html(`<span>${num}</span><span>个</span>`)
-            // $('#specialnum').text(`${num}`)
         });
+    }
+
+    //项目总览
+    function initProjectAll(num, num1) {
+        // 申报人次reportnum
+        var res = PrefixZero(num,6);
+        var arrval = res.split('');
+        for(var i=0; i < arrval.length; i++){
+            var html = `<div class="numitem">${arrval[i]}</div>`;
+            $('.reportnum').append(html);
+        }
+        if(num.toString().length > 3){
+            $('.reportnum').children('.numitem').eq(2).after(`<span class="comma">,</span>`)
+        }
+        $('.reportnum').append(`<div class="unititem">个</div>`);
+
+        //发放补贴总金额
+        var res1 = PrefixZero(num1,6);
+        var arrval1 = res1.split('');
+        for(var i=0; i < arrval1.length; i++){
+            var html = `<div class="numitem">${arrval1[i]}</div>`;
+            $('.subside').append(html);
+        }
+        if(num1.toString().length > 3){
+            $('.subside').children('.numitem').eq(2).after(`<span class="comma">,</span>`)
+        }
+        $('.subside').append(`<div class="unititem">万</div><div class="unititem">元</div>`);
     }
 
     //立体bar
@@ -366,6 +353,9 @@ $(function () {
                         distance : 12,
                         color: '#ff0656',
                         fontSize: 16,
+                        formatter: function (params) {
+                            return (params.data).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+                        }
                     },
                     silent: true,
                     barWidth: 30,
@@ -385,7 +375,7 @@ $(function () {
         var option = {
             grid: {
                 show: false,
-                left: '4%',
+                left: '1%',
                 right: '20%',
             },
             // backgroundColor: '#121B2C',        //背景色
@@ -402,7 +392,9 @@ $(function () {
                         color: '#ffffff',
                         fontSize: '16',
                     },
-                    // margin: 8,
+                    formatter: function (params) {
+                        return (params.data).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+                    }
                 },
                 itemStyle: {
                     normal: {
@@ -423,7 +415,10 @@ $(function () {
                     axisLabel: {
                         textStyle: {
                             color: '#ffffff',
-                            fontSize: '16',
+                            fontSize: '20',
+                        },
+                        formatter: function (params) {
+                            return (params).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
                         }
                     },
                     data:  data
@@ -434,7 +429,7 @@ $(function () {
                     name: '数据内框',
                     type: 'bar',
                     itemStyle: {
-                        barBorderRadius: 20,
+                        barBorderRadius: [0, 15, 15, 0] ,
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
                             color: myColor[idx-2]
@@ -454,8 +449,9 @@ $(function () {
                     type: 'bar',
                     itemStyle: {
                         normal: {
-                            barBorderRadius: 20,
-                            color: 'rgba(255, 255, 255, 0.11)'
+                            barBorderRadius: [0, 15, 15, 0],
+                            color: '#051a51',
+                            borderColor: '#032784'
                         }
                     },
                     barGap: '-100%',
@@ -469,7 +465,23 @@ $(function () {
     }
 
     //圆饼图
-    function initHighPie() {
+    function initHighPie(id, data) {
+        var num = 343524;
+        var res = splitNum(num);
+        //大标题
+        $('.comall').text(res);
+        //小标题
+        $('.dealcom').text(res);
+        $('.currcom').text(res);
+
+        //颜色处理
+        var colors = [['#2155f4','#f50860'],['#2155f4','#00c5c7']]
+
+        //图形处理
+        var datas = data.map((item,idx) => {
+            item.h = 10 + idx * 10;
+            return item;
+        })
         var each = Highcharts.each,
             round = Math.round,
             cos = Math.cos,
@@ -477,6 +489,7 @@ $(function () {
             deg2rad = Math.deg2rad;
         Highcharts.wrap(Highcharts.seriesTypes.pie.prototype, 'translate', function(proceed) {
             proceed.apply(this, [].slice.call(arguments, 1));
+            // Do not do this if the chart is not 3D
             if (!this.chart.is3d()) {
                 return;
             }
@@ -519,10 +532,17 @@ $(function () {
                 return ret;
             });
         }(Highcharts));
-        Highcharts.chart('container', {
+        Highcharts.chart(id, {
+            title: {
+                text: ' '
+            },
+            tooltip: {
+                enabled: false,
+            },
             chart: {
                 type: 'pie',
                 animation: false,
+                backgroundColor: 'transparent',
                 events: {
                     load: function() {
                         var each = Highcharts.each,
@@ -542,7 +562,7 @@ $(function () {
                 },
                 options3d: {
                     enabled: true,
-                    alpha: 75,
+                    alpha: 65,
                     beta: 0
                 }
             },
@@ -558,37 +578,37 @@ $(function () {
             },
             series: [{
                 type: 'pie',
-                name: 'Browser share',
-                data: [{
-                    'name': 'Firefox',
-                    y: 30.0,
-                    h: 50
-                }, {
-                    name: 'IE',
-                    y: 26.8,
-                    h: 15
-                }, {
-                    name: 'Chrome',
-                    y: 12.8,
-                    h: 20
-                }, {
-                    'name': 'Safari',
-                    y: 8.5,
-                    h: 2
-                }, {
-                    'name': 'Opera',
-                    y: 6.2,
-                    h: 15
-                }, {
-                    'name': 'Others',
-                    y: 0.7,
-                    h: 30
-                }]
+                name: '投诉',
+                colors: id == 'container1' ? colors[0] : colors[1],
+                data: datas
             }]
         });
+
     }
 
+    //公众服务
+    function initPublic(pubnum1,pubnum2,pubnum3) {
+        var num1 = splitNum(pubnum1);
+        var num2 = splitNum(pubnum2);
+        var num3 = splitNum(pubnum3);
+        $('.pubnum1').text(num1);
+        $('.pubnum2').text(num2);
+        $('.pubnum3').text(num3);
+    }
+
+    //信息汇总
+    function infocount() {
+        //总信息
+        $('.infonum1').text(126)
+        $('.infonum2').text(126)
+        $('.infonum3').text(126)
+        //表格
+
+        //饼图
+    };
+
     //显示对应城市
+    //todo
     function showCity(pName, Chinese_) {
         loadBdScript('$' + pName + 'JS', 'lib/map/province/' + pName + '.js', function() {
             initEcharts(Chinese_);
@@ -616,18 +636,81 @@ $(function () {
         document.getElementsByTagName("head")[0].appendChild(script);
     };
 
+    //遇三隔断
+    function splitNum(value) {
+        //先替换到所有的除了小数点以外的非数值数值
+        value = value.toString().replace(/[^(\d.)]*/g,'');
+        //字符串没有反转方法，故需要先转成数组
+        value = value.split('').reverse().join('');
+        //可以尝试不加正则后面的(?=\d),在输入的数字刚好是3的整数倍时就会出现问题
+        value = value.replace(/(\d{3})(?=\d)/g,'$1,');
+        value = value.split('').reverse().join('');
+        return value;
+    }
+
+    //数字补零当前数字num,多少位数n
+    function PrefixZero(num, n) {
+        return (Array(n).join(0) + num).slice(-n);
+    }
 
 
 
-//***************************************
+$(function () {
+    //地图
     initEcharts(true,0);
-    // initHighPie();
+    //项目总览
+    initProjectAll(456,23658);
+    //立体园饼图
+    initHighPie('container1', [{
+        name: 'Firefox',
+        y: 30.0,
+    }, {
+        name: 'IE',
+        y: 26.8,
+    }]);
+    initHighPie('container2',[{
+        name: 'Firefox',
+        y: 40.0,
+    }, {
+        name: 'IE',
+        y: 66.8,
+    }]);
+    //竖向bar
     initEchartsBar();
+    //横向bar
     initEchartsBar1('bar2',[11], 2);
     initEchartsBar1('bar3',[20], 3);
     initEchartsBar1('bar4',[60], 4);
     initEchartsBar1('bar5',[20], 5);
-    // initEchartsBar();
+    //公众服务
+    initPublic(7265,85,569);
+
+    //日历
+    $("#calendar").showCalendar({
+        bgColor: "#021156",
+        topColor: "#021156",
+        weekBgColor: "#021156",
+        weekFontColor: "#FFFFFF",
+        innerBorder: "1px solid #FFFFFF",
+        ymFontColor: '#FFFFFF',
+        ymBgColor: '#021156',
+        ymHoverBgColor: '#00CCCC',
+        arrowColor: "#FFFFFF",
+        noThisMonthFontColor: '#9F9F9F',
+        thisMonthFontColor: '#FFFFFF',
+        thisMonthBgColor: '#021156',
+        dateHoverFontColor: '#FFFFFF',
+        dateHoverBgColor: '#00CCCC',
+        tableBorder: '1px solid #FFFFFF',
+        btnBorder: '0',
+        btnBgColor: '#021156',
+        btnFontColor: '#FFFFFF',
+        btnHoverBgColor: '#00CCCC',
+        btnHoverFontColor: '#FFFFFF'
+    });
+    $('#calendar').val('2019-07-12');
+
+
     //项目总览,阳光审批,实时监管选中
     $('.noActive').click(function(){
         console.log("data-id",$(this).data("id"));
@@ -640,49 +723,90 @@ $(function () {
             initEcharts(true, $(this).data("id"))
         }
     });
+
     //搜索按钮
     $('.sudoBtn').click(function(){
-        alert($('#sudoTxt').val());
-    })
+        console.log($('#sudoTxt').val());
+    });
+
+
     //信息汇总弹窗
     $('.infBtn').click(function(){
         $('.infWrap').show();
-    })
-    //投诉举报
-    $('.complaintReporting').click(function(){
-        $('.wrap').show();
-    })
-    //关闭弹出的投诉举报
-    $('.closeBtn').click(function(){
-        $('.wrap').hide();
-    })
+        infocount();
+    });
     //关闭信息汇总弹窗
     $('.closeInf').click(function(){
         $('.infWrap').hide()
-    })
-    //切换显示样式
-    $('.btn').click(function(){
-        $('.btn').removeClass('btnActive')
+    });
+    //表格和饼图切换显示样式
+    $('.btnshow').click(function(){
+        $('.btnshow').removeClass('btnActive')
         $(this).addClass('btnActive');
-    })
+    });
     $('#changeTable').click(function(){
         $(".incircle").hide();
         $('.intable').show();
-    })
+    });
     $('#changeCircle').click(function(){
         $('.intable').hide();
         $(".incircle").show();
-    })
-
-    // $(window).resize(function() {
-    //     myChart.resize();
-    // });
+    });
 
 
+    //投诉举报
+    $('.complaintReporting').click(function(){
+        $('.wrap').show();
+    });
+    //关闭弹出的投诉举报
+    $('.closeBtn').click(function(){
+        $('.wrap').hide();
+    });
+    $('.dealshow').click(function(){
+        $('.dealshow').removeClass('dealActive')
+        $(this).addClass('dealActive');
+    });
 
 
+    //输入框autoComplete
+    var projects = [
+        {
+            value: "这是jquery",
+            label: "JQuery",
+            desc: "NO",
+            icon: "jquery_32x32.png"
+        },
+        {
+            value: "这是javascript",
+            label: "JavaScript",
+            desc: "Yes",
+            icon: "javascript_32x32.png"
+        },
+        {
+            value: "这是PHP",
+            label: "PHP",
+            desc: "Yes && NO",
+            icon: "php_32x32.png"
+        }
+    ];
+    $("#sudoTxt").autocomplete({
+        minLength : 0,
+        source : projects,
+        focus : function(event, ui){
+            $("#sudoTxt").val(ui.item.label);
+            return false;
+        },
+        select : function (event, ui){
+            $("#sudoTxt").val(ui.item.label);;
+            return false;
+        }
+    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        return $( "<li>" )
+            .append( "<a>" + item.label + "</a>" )
+            .appendTo( ul );
+    };
 
-})
+});
 
 
 

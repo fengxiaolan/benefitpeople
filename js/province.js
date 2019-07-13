@@ -173,7 +173,11 @@ $(function () {
         myChart1.on('click', function (params) {
             alert(params.name)
         });
+        myChart1.on('dbClick', function (params) {
+            window.location.reload();
+        });
     }
+
 
     initEcharts();
     //项目总览,阳光审批,实时监管选中
